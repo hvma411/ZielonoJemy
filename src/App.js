@@ -14,6 +14,7 @@ import AboutBlogSection from './components/AboutBlogSection';
 import AboutMeSection from './components/AboutMeSection';
 import ServicesSection from './components/ServicesSection';
 import OpinionsSection from './components/OpinionsSection';
+import FooterSection from './components/FooterSection';
 
 const App = () => {
     return (
@@ -24,6 +25,7 @@ const App = () => {
             <AboutMeSection />
             <ServicesSection />
             <OpinionsSection />
+            <FooterSection />
         </>
     );
 };
