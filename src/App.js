@@ -11,6 +11,9 @@ import './scss/main.scss';
 import HeaderSection from './components/HeaderSection';
 import WelcomeSection from './components/WelcomeSection';
 import AboutBlogSection from './components/AboutBlogSection';
+import AboutMeSection from './components/AboutMeSection';
+import ServicesSection from './components/ServicesSection';
+import OpinionsSection from './components/OpinionsSection';
 
 const App = () => {
     return (
@@ -18,6 +21,9 @@ const App = () => {
             <HeaderSection />
             <WelcomeSection />
             <AboutBlogSection />
+            <AboutMeSection />
+            <ServicesSection />
+            <OpinionsSection />
         </>
     );
 };

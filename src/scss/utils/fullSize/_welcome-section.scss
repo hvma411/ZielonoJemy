@@ -1,12 +1,13 @@
 .welcome-section {
     width: 100%;
-    height: 100vh;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     background: $main-color;
     padding-top: 50px;
+    margin-bottom: 100px;
 
     .logo-box {
         width: 100%;
@@ -80,7 +81,6 @@
         background: $btn-txt-color;
 
         .reducer {
-            width: 100%;
             display: flex;
             justify-content: flex-end;
             align-items: flex-start;
