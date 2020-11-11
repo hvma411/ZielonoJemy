@@ -12,6 +12,8 @@ const OpinionsSection = () => {
     return (
         <section className="opinions-section">
             <div className="container opinions-wrapper">
+                <h2>Co mówią o mnie inni?</h2>
+                <div className="underline"></div>
                 <div className="opinions-slider">
                     <div className="user-img"></div>
                     <div className="opinion-txt">

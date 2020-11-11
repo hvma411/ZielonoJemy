@@ -22,6 +22,7 @@ const FooterSection = () => {
                         <li>Mail.: karolina@zielonojemy.pl</li>
                     </ul>
                 </div>
+                <div className="vertical-line"></div>
                 <div className="logo-box footer-part">
                     <div className="logo"></div>
                     <div className="socialmedia">
@@ -30,6 +31,7 @@ const FooterSection = () => {
                         <FontAwesomeIcon icon={ faTwitterSquare }/>
                     </div>
                 </div>
+                <div className="vertical-line"></div>
                 <div className="footer-nav footer-part">
                     <ul>
                         <li>Strona główna</li>

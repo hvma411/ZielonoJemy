@@ -38,6 +38,11 @@ footer {
             }
         }
 
+        .vertical-line {
+            height: 200px;
+            border-left: 3px solid $line-color;
+        }
+
         .logo-box {
             flex-direction: column;
             color: $btn-color;

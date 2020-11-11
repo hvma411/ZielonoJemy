@@ -1,0 +1,66 @@
+@media only screen and (min-width: 300px) {
+    footer {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        background: $main-color;
+    
+        .footer-wrapper {
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 0 40px 0;
+    
+            .footer-part {
+                width: 31%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+    
+                ul {
+                    list-style: none;
+                    font-size: 1.2rem;
+                    font-weight: 400;
+    
+                    li {
+                        padding: 5px;
+                    }
+                }
+    
+                .logo {
+                    width: 200px;
+                    height: 155px;
+                    background: url(/src/scss/assets/IMG_0166.PNG);
+                    background-size: cover;
+                    background-position: center;
+                }
+            }
+
+            .vertical-line {
+                height: 200px;
+                border-left: 3px solid $line-color;
+            }
+    
+            .logo-box {
+                flex-direction: column;
+                color: $btn-color;
+    
+                svg {
+                    font-size: 1.3rem;
+                    margin: 5px;
+                    margin-top: 10px;
+                    cursor: pointer;
+                }
+            }
+    
+            .footer-nav {
+                text-align: center;
+            }
+    
+            
+        }
+    }
+}

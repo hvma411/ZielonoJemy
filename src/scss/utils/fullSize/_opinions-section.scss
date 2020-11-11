@@ -1,52 +1,120 @@
-.opinions-section {
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-
-    .opinions-wrapper {
+@media only screen and (min-width: 1024px) {
+    .opinions-section {
+        width: 100%;
+        height: auto;
         display: flex;
         justify-content: center;
-        align-items: center;
-
-        .opinions-slider {
-            width: 100%;
-            height: 300px;
+        align-items: flex-start;
+    
+        .opinions-wrapper {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            margin: 40px 40px 80px 40px;
-
-            .user-img {
-                width: 300px;
-                height: 300px;
-                background: url(/src/scss/assets/IMG_0142.JPG);
-                background-size: cover;
-                background-position: center;   
+    
+            h2 {
+                font-size: 2.2rem;
+                font-weight: 400;
+                padding: 30px 20px 20px 20px
             }
-
-            .opinion-txt {
-                height: 100%;
-                width: 50%;
-                background: $line-color;
-                padding: 20px 20px 20px 25px;
-
-                h3 {
-                    font-size: 1.5rem;
-                    font-weight: 500;
-                    color: $btn-txt-color;
-                    padding: 0 20px 20px 0px;
+    
+            .underline {
+                width: 150px;
+                border-bottom: 3px solid $line-color;
+                margin-bottom: 40px;
+            }
+    
+            .opinions-slider {
+                width: 100%;
+                height: 320px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0px 50px 200px 50px;
+    
+                .user-img {
+                    width: 320px;
+                    height: 320px;
+                    background: url(/src/scss/assets/IMG_0142.JPG);
+                    background-size: cover;
+                    background-position: center;   
                 }
-
-                p {
-                    max-width: 600px;
-                    padding: 0 20px 20px 0;
-                    font-size: 1.2rem;
-                    color: $btn-txt-color;
-                    font-weight: 300;
+    
+                .opinion-txt {
+                    height: 100%;
+                    width: 50%;
+                    background: $line-color;
+                    padding: 20px 20px 20px 25px;
+    
+                    h3 {
+                        font-size: 1.5rem;
+                        font-weight: 500;
+                        color: $btn-txt-color;
+                        padding: 0 20px 20px 0px;
+                    }
+    
+                    p {
+                        max-width: 40rem;
+                        padding: 0 20px 20px 0;
+                        font-size: 1.1rem;
+                        text-align: justify;
+                        color: $btn-txt-color;
+                        font-weight: 300;
+                    }
                 }
             }
         }
     }
 }
+
+@media only screen and (min-width: 1366px) {
+    .opinions-section {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    
+        .opinions-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+    
+            h2 {
+                font-size: 2.4rem;
+                padding: 40px 20px 20px 20px
+            }
+    
+            .opinions-slider {
+                width: 100%;
+                height: 320px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0px 50px 200px 50px;
+
+    
+                .opinion-txt {
+    
+                    h3 {
+                        font-size: 1.5rem;
+                        font-weight: 500;
+                        color: $btn-txt-color;
+                        padding: 0 20px 20px 0px;
+                    }
+    
+                    p {
+                        max-width: 40rem;
+                        padding: 0 20px 20px 0;
+                        font-size: 1.3rem;
+                        text-align: justify;
+                        color: $btn-txt-color;
+                        font-weight: 300;
+                    }
+                }
+            }
+        }
+    }
+}
+
