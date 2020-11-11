@@ -1,0 +1,117 @@
+@media only screen and (min-width: 300px) {
+    .welcome-section {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        background: $main-color;
+        padding-top: 50px;
+        margin-bottom: 100px;
+    
+        .logo-box {
+            width: 100%;
+            height: 150px;
+            background-image: url(/src/scss/assets/IMG_0166.PNG);
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 20px 0 40px 0;
+        }
+        .photo-txt-box {
+            width: 100%;
+            height: auto;
+            display: flex;
+    
+            .photo__box {
+                width: 50%;
+                height: auto;
+                position: relative;
+    
+                .photo {
+                    position: absolute;
+                    top: 0;
+                    width: 100%;
+                    height: 600px;
+                    background: url(/src/scss/assets/IMG_0132.JPG);
+                    background-position: top;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                }
+    
+            }
+    
+            .txt__box {
+                width: 50%;
+                height: auto;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                
+                h1 {
+                    color: $btn-color;
+                    font-size: 3.9rem;
+                    font-weight: 400;
+                    max-width: 580px;
+                    text-align: center;
+                    padding: 10px 0 20px 0;
+                }
+    
+                .short-line {
+                    height: 50px;
+                    border-left: 3px solid $line-color;
+                }
+    
+                h2 {
+                    color: $line-color;
+                    font-size: 34px;
+                    font-weight: 400;
+                    text-align: center;
+                    max-width: 600px;
+                    padding: 20px 0 50px 0;
+                }
+            }
+        }
+        .white-cut {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            background: $btn-txt-color;
+    
+            .reducer {
+                display: flex;
+                justify-content: flex-end;
+                align-items: flex-start;
+    
+                .button-box {
+                    width: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: relative;
+                    padding: 50px;
+    
+                    .short-line {
+                        position: absolute;
+                        top: -25px;
+                        height: 50px;
+                        border-left: 3px solid $line-color;
+                    }
+    
+                    button {
+                        font-size: 34px;
+                        color: $btn-txt-color;
+                        background: $btn-color;
+                        outline: none;
+                        border: none;
+                        cursor: pointer;
+                        padding: 10px 80px 10px 80px;
+                    }
+                }
+            }
+        }
+    }
+}

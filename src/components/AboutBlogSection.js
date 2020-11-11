@@ -21,11 +21,11 @@ const AboutBlogSection = () => {
               <div className="title">NAJNOWSZY ARTYKUŁ</div>
             </div>
             <div className="articles-recipes container">
-              <div className="short-line"></div>
+              <div className="short-line-left"></div>
               <div className="new__article post"></div>
               <div className="logo"></div>
               <div className="new__recipe post"></div>
-              <div className="short-line"></div>
+              <div className="short-line-right"></div>
             </div>
             <div className="new-recipe-title-box">
               <div className="title">NAJNOWSZY PRZEPIS</div>

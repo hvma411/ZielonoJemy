@@ -1,8 +1,12 @@
 @import './reset.scss';
 @import './utils/vars/colors';
+@import './utils/mobileSize/header-section-mobile';
 @import './utils/fullSize/header-section';
+@import './utils/mobileSize/welcome-section';
 @import './utils/fullSize/welcome-section';
+@import './utils/mobileSize/about-blog-section';
 @import './utils/fullSize/about-blog-section';
+
 @import './utils/fullSize/about-me-section';
 @import './utils/fullSize/services-section';
 @import './utils//fullSize/opinions-section';
