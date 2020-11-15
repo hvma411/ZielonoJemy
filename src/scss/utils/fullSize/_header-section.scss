@@ -1,9 +1,35 @@
 @media only screen and (min-width: 1024px) {
-    header {   
-        .main-nav { 
+    header {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: $main-color;
+        position: fixed;
+        top: 0;
+        z-index: 99;
+           
+        .main-nav {
+            height: auto;
+            padding: 15px 0 15px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .hamburger-menu {
+                display: none;
+            }
             ul {
+                display: flex;
                 font-size: 1.25rem;
             }
+        }
+
+        .reducer-line {
+            display: block;
+            width: 150px;
+            border-bottom: 3px solid $line-color;
         }
     }
 }

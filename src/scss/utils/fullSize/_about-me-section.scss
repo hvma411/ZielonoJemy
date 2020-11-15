@@ -5,11 +5,13 @@
         display: flex;
         justify-content: center;
         align-items: flex-start;
+        padding: 0;
     
         .photo-text-box {
             height: 100%;
             display: flex;
             justify-content: center;
+            flex-direction: row;
             align-items: center;
     
             .photo__box {
@@ -28,7 +30,6 @@
                     background-size: cover;
                     background-repeat: no-repeat;
                     background-position: center;
-                    
                 }
             }
     
@@ -40,6 +41,7 @@
                 justify-content: center;
                 align-items: center;
                 position: relative;
+                padding-top: 0;
     
                 .medium-line {
                     position: absolute;
@@ -72,6 +74,7 @@
                     font-size: 1.4rem;
                     font-weight: 300;
                     text-align: justify;
+                    padding: 0;
                     padding-bottom: 50px;
                 }
     

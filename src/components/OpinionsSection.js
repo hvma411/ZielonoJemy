@@ -18,7 +18,7 @@ const OpinionsSection = () => {
                     <div className="user-img"></div>
                     <div className="opinion-txt">
                         <h3>ANNA KOWALSKA</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temport incididunt ut laobre et dolore magna aliqua. Ut enim ad minim veniam, quis nostraud exercitation ullamco laboris nisi ut alquip ex. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temport incididunt ut laobre et dolore magna aliqua. Ut enim ad minim veniam, quis nostraud exercitation ullamco laboris nisi ut alquip ex</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temport incididunt ut laobre et dolore magna aliqua.</p>
                     </div>
                 </div>
             </div>

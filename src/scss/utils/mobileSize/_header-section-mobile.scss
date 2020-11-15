@@ -3,7 +3,7 @@
         width: 100%;
         height: auto;
         display: flex;
-        justify-content: center;
+        justify-content: flex-end;
         align-items: center;
         background: $main-color;
         position: fixed;
@@ -12,14 +12,20 @@
     
         .main-nav {
             height: auto;
-            padding: 15px 0 15px 0;
+            padding: 10px 10px 10px 0;
             display: flex;
-            justify-content: center;
+            justify-content: flex-end;
             align-items: center;
+
+            .hamburger-menu {
+                width: 40px;
+                height: 40px;
+                background: black;
+            }
     
             ul {
                 width: 100%;
-                display: flex;
+                display: none;
                 justify-content: space-evenly;
                 list-style: none;
                 font-size: 1.6rem;
@@ -34,9 +40,7 @@
         }
     
         .reducer-line {
-            width: 150px;
-            border-bottom: 3px solid $line-color;
-           
+            display: none;
         }
     }
 }

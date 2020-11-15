@@ -6,7 +6,7 @@
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-        margin-bottom: 100px;
+        margin-bottom: 30px;
     
         .text-part-box {
             width: 100%;
@@ -16,27 +16,27 @@
             align-items: center;
     
             h2 {
-                font-size: 54px;
+                font-size: 1.8rem;
                 color: $btn-color;
                 font-weight: 500;
                 text-align: center;
                 max-width: 850px;
-                padding-bottom: 20px;
+                padding: 10px;
             }
     
             .under-line {
-                width: 300px;
+                width: 150px;
                 border-bottom: 3px solid $line-color;
                 margin: 10px 0 10px 0;
             }
     
             h3 {
-                font-size: 32px;
+                font-size: 1.2rem;
                 color: $line-color;
                 font-weight: 300;
                 text-align: center;
-                max-width: 1050px;
-                padding: 20px 0 20px 0;
+                max-width: 100%;
+                padding: 10px;
             }
         }
     
@@ -45,12 +45,13 @@
             height: auto;
             display: flex;
             justify-content: center;
+            flex-direction: column;
             align-items: center;
             padding-top: 20px;
     
     
             .new-article-title-box {
-                writing-mode: vertical-rl;
+                writing-mode: horizontal-tb;
                 display: flex;
                 flex-direction: column-reverse;
                 justify-content: center;
@@ -60,13 +61,13 @@
                     font-size: 18px;
                     color: $line-color;
                     height: auto;
-                    transform: rotate(-180deg);
                     text-align: center;
+                    padding-bottom: 15px;
                 }
             }
     
             .new-recipe-title-box {
-                writing-mode: vertical-rl;
+                writing-mode: horizontal-tb;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-evenly;
@@ -76,46 +77,46 @@
                     font-size: 18px;
                     color: $line-color;
                     height: auto;
-                    transform: rotate(0deg);
+                    padding-top: 15px;
                 }
             }
     
             .short-line-left {
-                width: 50px;
-                border-bottom: 3px solid $line-color;
-                position: absolute;
-                top: 50%;
-                left: 30px;
+                height: 30px;
+                border-left: 3px solid $line-color;
+                position: static;
             }
     
             .short-line-right {
-                width: 50px;
-                border-bottom: 3px solid $line-color;
-                position: absolute;
-                top: 50%;
-                right: 30px;
+                height: 30px;
+                border-left: 3px solid $line-color;
+                position: static;
             }
     
     
             .articles-recipes {
+                width: 100%;
                 height: auto;
                 display: flex;
+                flex-direction: column;
                 justify-content: space-evenly;
                 align-items: center;
                 position: relative;
     
                 .post {
-                    width: 400px;
-                    height: 400px;
+                    width: 250px;
+                    height: 250px;
                     background: black;
+                    margin: 10px;
                 }
     
                 .logo {
-                    width: 200px;
-                    height: 200px;
+                    width: 100px;
+                    height: 100px;
                     background-image: url(/src/scss/assets/logo2.png);
                     background-repeat: no-repeat;
                     background-size: cover;
+                    margin: 15px;
                 }
             }
         }

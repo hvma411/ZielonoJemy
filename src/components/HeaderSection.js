@@ -13,6 +13,7 @@ const HeaderSection = () => {
         <header>
             <div className="reducer-line"></div>
             <nav className="main-nav container">
+                <div className="hamburger-menu"></div>
                 <ul>
                     <li>STRONA GŁÓWNA</li>
                     <li>ARTYKUŁY</li>

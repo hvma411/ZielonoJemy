@@ -7,6 +7,7 @@
             h2 {
                 font-size: 2.6rem;
                 max-width: 50rem;
+                padding: 0;
                 padding-bottom: 15px;
             }
     
@@ -23,24 +24,33 @@
         }
     
         .new-posts-box {
+            flex-direction: row;
             padding: 15px 10px 0 10px;
     
             .new-article-title-box {
+                writing-mode: vertical-rl;
     
                 .title {
                     font-size: 1rem;
+                    transform: rotate(-180deg);
+                    padding-bottom: 0;
                 }
             }
     
             .new-recipe-title-box {
+                writing-mode: vertical-rl;
     
                 .title {
                     font-size: 1rem;
+                    padding-top: 0;
+                    transform: rotate(0deg);
                 }
             }
     
             .short-line-left {
                 width: 50px;
+                height: 0;
+                border-left: none;
                 border-bottom: 3px solid $line-color;
                 position: absolute;
                 top: 50%;
@@ -49,6 +59,8 @@
     
             .short-line-right {
                 width: 50px;
+                height: 0;
+                border-left: none;
                 border-bottom: 3px solid $line-color;
                 position: absolute;
                 top: 50%;
@@ -57,12 +69,14 @@
     
     
             .articles-recipes {
+                flex-direction: row;
                 justify-content: space-evenly;
     
                 .post {
                     width: 280px;
                     height: 280px;
                     background: black;
+                    margin: 0;
                 }
     
                 .logo {

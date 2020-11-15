@@ -9,9 +9,11 @@
             margin: 20px 0 20px 0;
         }
         .photo-txt-box {
+            flex-direction: row;
+            align-items: unset;
     
             .photo__box {
-    
+                display: block;
                 .photo {
 
                     top: 0;
@@ -22,6 +24,7 @@
             }
     
             .txt__box {
+                width: 50%;
 
                 h1 {
                     color: $btn-color;
@@ -48,8 +51,11 @@
             }
         }
         .white-cut {
+            height: 100%;
             .reducer {
+                justify-content: flex-end;
                 .button-box {
+                    width: 50%;
                     padding: 40px;
     
                     .short-line {
