@@ -18,9 +18,9 @@ const WelcomeSection = () => {
                         <div className="photo"></div>
                     </div>
                     <div className="txt__box">
-                        <h1>Jestem tu po to żeby Ci pomóc</h1>
+                        <h1>Potrzebujesz pomocy dietetyka?</h1>
                         <div className="short-line"></div>
-                        <h2>Sprawdź moje propozycje żywieniowe, przeczytaj bloga i skontaktuj się ze mną, a na pewno Ci pomogę!</h2>
+                        <h2>Poznaj moją ofertę, wybierz dogodną opcję i skontaktuj się ze mną</h2>
                     </div>
                 </div>
             </div>

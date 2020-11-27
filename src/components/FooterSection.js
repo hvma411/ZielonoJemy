@@ -18,8 +18,8 @@ const FooterSection = () => {
                 <div className="contact-info-box footer-part">
                     <ul>
                         <li>Karolina Furmańska</li>
-                        <li>Tel.: +48 123 123 123</li>
-                        <li>Mail.: karolina@zielonojemy.pl</li>
+                        <li>Tel.: +48 789 455 613</li>
+                        <li>Mail.: furmanska.diet@gmail.com</li>
                     </ul>
                 </div>
                 <div className="vertical-line"></div>
@@ -38,7 +38,7 @@ const FooterSection = () => {
                         <li>O mnie</li>
                         <li>Oferta</li>
                         <li>Artykuły</li>
-                        <li>Przepsy</li>
+                        <li>Przepisy</li>
                         <li>Kontakt</li>
                     </ul>
                 </div>

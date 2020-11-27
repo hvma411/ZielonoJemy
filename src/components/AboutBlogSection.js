@@ -12,9 +12,9 @@ const AboutBlogSection = () => {
     return (
         <section className="about-blog-section">
           <div className="text-part-box container">
-            <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed</h2>
+            <h2>Dlaczego zielonojemy?</h2>
             <div className="under-line"></div>
-            <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut</h3>
+            <h3>Mam dwie edukacyjne misje w życiu. Pierwszą jest zachęcanie do świadomych wyborów żywieniowych, abyśmy jako społeczeństwo mogli cieszyć się zdrowiem jak najdłużej. Drugą natomiast uświadamianie, że to, co jemy ma realny wpływ na naszą planetę. Jedząc bardziej roślinnie, możemy rozświetlić jej przyszłość!</h3>
           </div>
           <div className="new-posts-box">
             <div className="new-article-title-box">

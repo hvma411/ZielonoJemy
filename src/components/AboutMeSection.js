@@ -18,9 +18,11 @@ const AboutMeSection = () => {
                 </div>
                 <div className="text__box">
                     <div className="medium-line"></div>
-                    <h2>Cześć, jestem Karolina Furmańska</h2>
-                    <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temport incididunt ut labore et dolore magna</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <h2>Cześć, mam na imię Karolina</h2>
+                    <h4>Jestem dietetykiem klinicznym, miłośniczką dobrej kawy i fanką diety roślinnej.</h4>
+                    <p>Dyplom uzyskałam na Wydziale Lekarskim Collegium Medicum Uniwersytetu Jagiellońskiego w Krakowie. Dietetyką zaczęłam interesować się już w liceum, czyli w tym roku minie 6 lat, odkąd przeczytałam pierwsze podręczniki z nią związane. Chciałabym Ci pokazać, że zbilansowana dieta i aktywność fizyczna to droga do zdrowia i dobrego samopoczucia. Co ważne - nie potrzebujesz do tego garści suplementów, diety cud czy detoksów.
+                    Jaką dietetykę popularyzuję? Opartą na faktach naukowych w przystępnej formie, abyś bez wykształcenia okołomedycznego czuł/a ten klimat.
+                    </p>
                     <button>Czytaj więcej</button>
                 </div>
             </div>

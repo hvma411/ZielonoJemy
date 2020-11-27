@@ -39,7 +39,113 @@
                     flex-direction: column;
                     justify-content: flex-start;
                     align-items: center;
-                    width: auto;
+                    width: 100%;
+                    height: auto;
+                    margin: 10px;
+    
+                    h4 {
+                        font-size: 1.3rem;
+                        font-weight: 500;
+                        text-align: center;
+                        color: $line-color;
+                        padding: 15px 20px 15px 20px;
+                    }
+    
+                    .service__img1 {
+                        width: 140px;
+                        height: 140px;
+                        border-radius: 50%;
+                        background: $line-color;
+                    }
+    
+                    h5 {
+                        max-width: 21rem;
+                        font-size: 1.1rem;
+                        color: $line-color;
+                        font-weight: 500;
+                        text-align: center;
+                        padding: 15px 15px 0px 15px;
+                    }
+                    
+                    ul {
+                        font-size: 0.9rem;
+                        color: $line-color;
+                        font-weight: 300;
+                        padding: 15px;
+                        padding-top: 10px;
+    
+                        li {
+                            text-align: center;
+                            list-style: none;
+                            padding: 10px 5px 10px 5px;
+                            
+                            border-bottom: 1px solid $line-color;
+                        }
+                    }
+                }
+    
+                .promoted {
+                    background: $main-color;
+                }
+            }
+    
+            button {
+                background: $btn-color;
+                color: $btn-txt-color;
+                font-size: 1.3rem;
+                font-weight: 500;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                padding: 10px 40px 10px 40px;
+                margin-bottom: 30px;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 400px) {
+    .services-section {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    
+        .section-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+    
+            h2 {
+                font-size: 1.4rem;
+                text-align: center;
+                font-weight: 400;
+                padding: 30px 10px 10px 10px
+            }
+    
+            .underline {
+                width: 100px;
+                border-bottom: 3px solid $line-color;
+                margin-bottom: 10px;
+            }
+    
+            .services-box {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+                padding-bottom: 30px;
+    
+                .service {
+                    background: $about-color;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: center;
+                    width: 100%;
                     height: auto;
                     margin: 10px;
     
@@ -60,50 +166,139 @@
     
                     h5 {
                         max-width: 21rem;
-                        font-size: 1.2rem;
+                        font-size: 1.1rem;
                         color: $line-color;
                         font-weight: 500;
                         text-align: center;
-                        padding: 15px 20px 0px 20px;
+                        padding: 15px 15px 0px 15px;
                     }
                     
                     ul {
-                        font-size: 1.1rem;
+                        font-size: 1rem;
                         color: $line-color;
                         font-weight: 300;
-                        padding: 20px;
+                        padding: 15px;
+                        padding-top: 10px;
     
                         li {
-                            padding: 3px;
+                            text-align: center;
+                            list-style: none;
+                            padding: 10px 5px 10px 5px;
+                            
+                            border-bottom: 1px solid $line-color;
                         }
                     }
                 }
     
                 .promoted {
                     background: $main-color;
+                }
+            }
     
-                    // h4 {
-                    //     color: $btn-color;
-                    //     font-size: 1.5rem;
-                    // }
+            button {
+                background: $btn-color;
+                color: $btn-txt-color;
+                font-size: 1.3rem;
+                font-weight: 500;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                padding: 10px 40px 10px 40px;
+                margin-bottom: 30px;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 760px) {
+    .services-section {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
     
-                    // .service__img1 {
-                    //     width: 160px;
-                    //     height: 160px;
+        .section-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
     
-                    // }
+            h2 {
+                font-size: 1.4rem;
+                text-align: center;
+                font-weight: 400;
+                padding: 30px 10px 10px 10px
+            }
     
-                    // h5 {
-                    //     color: $btn-color;
-                    //     font-size: 1.3rem;
-                    //     padding-bottom: 0;
-                    // }
+            .underline {
+                width: 100px;
+                border-bottom: 3px solid $line-color;
+                margin-bottom: 10px;
+            }
     
-                    // ul {
-                    //     color: $btn-color;
-                    //     font-size: 1.2rem;
-                    //     padding: 20px 20px 30px 20px;
-                    // }
+            .services-box {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+                padding-bottom: 30px;
+    
+                .service {
+                    background: $about-color;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: center;
+                    width: 420px;
+                    height: auto;
+                    padding-bottom: 20px;
+                    margin: 10px;
+    
+                    h4 {
+                        font-size: 1.4rem;
+                        font-weight: 500;
+                        text-align: center;
+                        color: $line-color;
+                        padding: 15px 20px 15px 20px;
+                    }
+    
+                    .service__img1 {
+                        width: 140px;
+                        height: 140px;
+                        border-radius: 50%;
+                        background: $line-color;
+                    }
+    
+                    h5 {
+                        max-width: 21rem;
+                        font-size: 1.1rem;
+                        color: $line-color;
+                        font-weight: 500;
+                        text-align: center;
+                        padding: 15px 15px 0px 15px;
+                    }
+                    
+                    ul {
+                        font-size: 1rem;
+                        color: $line-color;
+                        font-weight: 300;
+                        padding: 15px;
+                        padding-top: 10px;
+    
+                        li {
+                            text-align: center;
+                            list-style: none;
+                            padding: 10px 5px 10px 5px;
+                            
+                            border-bottom: 1px solid $line-color;
+                        }
+                    }
+                }
+    
+                .promoted {
+                    background: $main-color;
                 }
             }
     
