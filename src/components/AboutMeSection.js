@@ -23,7 +23,9 @@ const AboutMeSection = () => {
                     <p>Dyplom uzyskałam na Wydziale Lekarskim Collegium Medicum Uniwersytetu Jagiellońskiego w Krakowie. Dietetyką zaczęłam interesować się już w liceum, czyli w tym roku minie 6 lat, odkąd przeczytałam pierwsze podręczniki z nią związane. Chciałabym Ci pokazać, że zbilansowana dieta i aktywność fizyczna to droga do zdrowia i dobrego samopoczucia. Co ważne - nie potrzebujesz do tego garści suplementów, diety cud czy detoksów.
                     Jaką dietetykę popularyzuję? Opartą na faktach naukowych w przystępnej formie, abyś bez wykształcenia okołomedycznego czuł/a ten klimat.
                     </p>
-                    <button>Czytaj więcej</button>
+                    <Link to="/about">
+                        <button>Czytaj więcej</button>
+                    </Link>
                 </div>
             </div>
         </section>

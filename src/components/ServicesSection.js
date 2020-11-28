@@ -48,7 +48,9 @@ const ServicesSection = () => {
                         </ul>
                     </div>
                 </div>
-                <button>Czytaj więcej</button>
+                <Link to="/services">
+                    <button>Czytaj więcej</button>
+                </Link>
             </div>
         </section>
     );

@@ -15,12 +15,12 @@ const HeaderSection = () => {
             <nav className="main-nav container">
                 <div className="hamburger-menu"></div>
                 <ul>
-                    <li>STRONA GŁÓWNA</li>
-                    <li>ARTYKUŁY</li>
-                    <li>PRZEPISY</li>
-                    <li>OFERTA</li>
-                    <li>O MNIE</li>
-                    <li>KONTAKT</li>
+                    <li><Link to="/">STRONA GŁÓWNA</Link></li>
+                    <li><Link to="/articles">ARTYKUŁY</Link></li>
+                    <li><Link to="/recipes">PRZEPISY</Link></li>
+                    <li><Link to="/services">OFERTA</Link></li>
+                    <li><Link to="/about">O MNIE</Link></li>
+                    <li><Link to="/contact">KONTAKT</Link></li>
                     <li>SZUKAJ</li>
                 </ul>
             </nav>

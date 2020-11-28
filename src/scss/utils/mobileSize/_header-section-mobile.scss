@@ -35,6 +35,11 @@
     
                 li {
                     cursor: pointer;
+                    
+                    a {
+                        text-decoration: none;
+                        color: $line-color;
+                    }
                 }
             }
         }

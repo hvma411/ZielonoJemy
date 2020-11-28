@@ -28,7 +28,9 @@ const WelcomeSection = () => {
                 <div className="container reducer">
                     <div className="button-box">
                         <div className="short-line"></div>
-                        <button>Czytaj więcej</button>
+                        <Link to="/services">
+                            <button>Czytaj więcej</button>
+                        </Link>
                     </div>
                 </div>
             </div>
