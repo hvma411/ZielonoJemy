@@ -16,6 +16,11 @@ import AboutMeSection from './components/AboutMeSection';
 import ServicesSection from './components/ServicesSection';
 import OpinionsSection from './components/OpinionsSection';
 import FooterSection from './components/FooterSection';
+import Articles from "./components/MenuComponents/Articles";
+import Recipes from "./components/MenuComponents/Recipes";
+import Services from "./components/MenuComponents/Services";
+import About from "./components/MenuComponents/About";
+import Contact from "./components/MenuComponents/Contact";
 
 const Main = () => {
     return (
@@ -25,6 +30,7 @@ const Main = () => {
             <AboutMeSection />
             <ServicesSection />
             <OpinionsSection />
+
         </>
     );
 };

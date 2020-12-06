@@ -7,14 +7,18 @@ import {
   Switch,
   NavLink,
 } from 'react-router-dom';
+import FooterSection from "../FooterSection";
+import HeaderSection from "../HeaderSection";
 
 const Articles = () => {
     return (
-        <section className="articles">
-            <div className="container">
-                ARTICLES PAGE
-            </div>
-        </section>
+        <>
+            <section className="articles">
+                <div className="container">
+                    ARTICLES PAGE
+                </div>
+            </section>
+        </>
     );
 };
 

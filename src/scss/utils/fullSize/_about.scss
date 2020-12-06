@@ -1,0 +1,82 @@
+@media only screen and (min-width: 1024px) {
+    .about__me {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 120px;
+        background-color: $about-color;
+
+        .about__page {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: auto;
+        
+            .about__main__wrapper {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .photo__box {
+                    width: 45%;
+                    margin-bottom: 60px;
+
+                    .photo {
+                        width: 100%;
+                        height: 600px;
+                        background-image: url(/src/scss/assets/IMG_0142.JPG);
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        background-position: center;
+                        
+                    }
+                }
+
+                .text__box {
+                    width: 45%;
+                    .medium-line {
+                        position: absolute;
+                        top: 25px;
+                        left: -200px;
+                        width: 200px;
+                        border-bottom: 3px solid $line-color;
+                    }
+                    
+                    h2 {
+                        color: $btn-color;
+                        font-size: 2.47rem;
+                        max-width: 35rem;
+                        font-weight: 400;
+                        text-align: center;
+                        padding-bottom: 30px;
+                    }
+        
+                    h4 {
+                        color: $line-color;
+                        font-size: 1.45rem;
+                        font-weight: 500;
+                        text-align: center;
+                        max-width: 550px;
+                        padding-bottom: 30px;
+                    }
+        
+                    p {
+                        color: $line-color;
+                        font-size: 1.52rem;
+                        font-weight: 300;
+                        text-align: justify;
+                        padding-bottom: 50px;
+                    }
+                }
+        
+
+            }
+
+        }
+    }
+}
+
