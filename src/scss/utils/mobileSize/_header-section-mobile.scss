@@ -9,6 +9,78 @@
         position: fixed;
         top: 0;
         z-index: 99;
+
+        @keyframes menuIn {
+            0% {transform: translateX(-100%);}
+            100% {transform: translateX(0);}
+        }
+
+        @keyframes menuOut {
+            0% {transform: translateX(0);}
+            100% {transform: translateX(-100%);}
+        }
+
+        .hamburger-nav {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 100%;
+            height: 100vh;
+            background: $main-color;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            padding-top: 60px;
+            animation: ease-in-out menuOut 0.5s;
+            transform: translateX(-100%);
+
+            ul {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                list-style: none;
+                font-size: 1.4rem;
+                font-weight: 400;
+                color: $line-color;
+
+                // .search {
+                //     width: 100%;
+                //     height: 100%;
+                //     display: block;
+                //     text-decoration: none;
+                //     color: $line-color;
+                //     margin: 0;
+                //     padding-bottom: 15px;
+                //     padding-left: 20px;
+                // }
+    
+                li {
+                    cursor: pointer;
+                    width: 100%;
+                }
+
+                a, .search {
+                    width: 100%;
+                    height: 100%;
+                    display: block;
+                    text-decoration: none;
+                    color: $line-color;
+                    margin: 0;
+                    padding-bottom: 15px;
+                    padding-left: 20px;
+                }
+            }
+        }
+
+        .hamburger-nav--active {
+            display: flex;
+            transition-timing-function: ease-out;
+            animation: ease-in-out menuIn 0.5s;
+            transform: translateX(0);
+        }
     
         .main-nav {
             height: auto;
