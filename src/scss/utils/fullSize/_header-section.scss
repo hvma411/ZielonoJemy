@@ -16,10 +16,16 @@
             display: flex;
             justify-content: center;
             align-items: center;
-
-            .hamburger-menu {
+            
+            .mobile-logo {
                 display: none;
             }
+
+
+            .hamburger {
+                display: none;
+            }
+
             ul {
                 display: flex;
                 font-size: 1.25rem;

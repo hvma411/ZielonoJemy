@@ -25,8 +25,8 @@ const CertificateCarousel = () => {
 
     const breakPoints = [
         {width: 1, itemsToShow: 1},
-        {width: 768, itemsToShow: 3},
-        {width: 1024, itemsToShow: 4}
+        {width: 640, itemsToShow: 3},
+        {width: 1023, itemsToShow: 4}
     ]
 
     return (
@@ -36,6 +36,9 @@ const CertificateCarousel = () => {
     )
 }
 
-const Item = ({ number, title }) => <div className="carousel__item">{ number }</div>
+const Item = ({ number, title }) => 
+    <div className="carousel__item">
+        <div className={ `certificate${number}` } />
+    </div>
 
 export default CertificateCarousel;

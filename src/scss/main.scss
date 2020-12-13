@@ -1,5 +1,6 @@
 @import './reset.scss';
 @import './utils/vars/colors';
+@import './utils/mobileSize/hamburger-menu';
 @import './utils/mobileSize/header-section-mobile';
 @import './utils/fullSize/header-section';
 @import './utils/mobileSize/welcome-section-mobile';
@@ -16,5 +17,6 @@
 @import './utils/fullSize/footer-section';
 @import './utils/mobileSize/articles-mobile';
 @import './utils/fullSize/articles';
+@import './utils/mobileSize/about-mobile';
 @import './utils/fullSize/about';
 @import './utils/fullSize/admin';
