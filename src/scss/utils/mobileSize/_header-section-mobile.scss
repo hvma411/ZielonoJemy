@@ -32,11 +32,13 @@
             top: 0px;
             right: 0px;
             padding-top: 60px;
+            padding-bottom: 60px;
             animation: ease-in-out menuOut 0.5s;
             transform: translateX(-100%);
 
             ul {
                 width: 100%;
+                height: auto;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -69,7 +71,7 @@
                     text-decoration: none;
                     color: $line-color;
                     margin: 0;
-                    padding-bottom: 15px;
+                    padding-bottom: 10px;
                     padding-left: 20px;
                 }
             }

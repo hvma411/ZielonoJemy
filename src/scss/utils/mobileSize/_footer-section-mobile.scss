@@ -36,8 +36,8 @@
                 }
     
                 .logo {
-                    width: 200px;
-                    height: 155px;
+                    width: 220px;
+                    height: 160px;
                     background: url(/src/scss/assets/IMG_0166.PNG);
                     background-size: cover;
                     background-position: center;
@@ -75,7 +75,7 @@
                 ul {
                     li {
                         a {
-                            color: $btn-color;
+                            color: $line-color;
                             text-decoration: none;
                         }
                     }
