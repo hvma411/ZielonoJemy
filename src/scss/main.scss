@@ -1,24 +1,37 @@
 @import './reset.scss';
 @import './utils/vars/colors';
 @import './utils/mobileSize/hamburger-menu';
+
 @import './utils/mobileSize/header-section-mobile';
 @import './utils/fullSize/header-section';
+
 @import './utils/mobileSize/welcome-section-mobile';
 @import './utils/fullSize/welcome-section';
+
 @import './utils/mobileSize/about-blog-section-mobile';
 @import './utils/fullSize/about-blog-section';
+
 @import './utils/mobileSize/about-me-section-mobile'; 
 @import './utils/fullSize/about-me-section';
+
 @import './utils/mobileSize/services-section-mobile';
 @import './utils/fullSize/services-section';
+
 @import './utils/mobileSize/opinions-section.mobile';
 @import './utils//fullSize/opinions-section';
+
 @import './utils/mobileSize/footer-section-mobile';
 @import './utils/fullSize/footer-section';
+
 @import './utils/mobileSize/articles-mobile';
 @import './utils/fullSize/articles';
+
 @import './utils/mobileSize/recipes-mobile';
 @import './utils/fullSize/recipes';
+
 @import './utils/mobileSize/about-mobile';
 @import './utils/fullSize/about';
+
+@import './utils/fullSize/services';
+
 @import './utils/fullSize/admin';
