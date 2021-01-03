@@ -1,0 +1,14 @@
+@media only screen and (min-width: 1024px) {
+    .contact {
+        .contact__page {
+
+            .page-box {
+                flex-wrap: nowrap;
+
+                .form-box {
+                    padding: 20px;
+                }
+            }
+        }
+    }
+}
