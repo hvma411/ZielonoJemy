@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { Component, useState, useEffect, useCallback } from "react";
 import ReactDOM from "react-dom";
 import {
   HashRouter,
@@ -29,16 +29,51 @@ const CertificateCarousel = () => {
         {width: 1023, itemsToShow: 4}
     ]
 
+
+    const [name, setName] = useState('foo')
+
     return (
-        <Carousel breakPoints={ breakPoints }>
-            { state.map(item => <Item number={ item.id } key={ item.id } title={ item.title } />)}
-        </Carousel>
+        <>
+            <Carousel breakPoints={ breakPoints }>
+                { state.map(item => <Item number={ item.id } key={ item.id } title={ item.title } classToDisplay={ name } onClassChange={ setName } />)}
+            </Carousel>
+            <ItemBigView classToDisplay={ name } />
+        </>
     )
 }
 
-const Item = ({ number, title }) => 
-    <div className="carousel__item">
-        <div className={ `certificate${number}` } />
-    </div>
+const Item = ({ number, classToDisplay, onClassChange }) => {
+
+    const handleClick = useCallback(e => {
+        
+        onClassChange(e.target.className);
+
+        document.querySelector(".item__big__view").classList.add("item__big__view--visible");
+        document.querySelector("body").style.overflow = "hidden";
+
+    }, [onClassChange])
+    
+    return (
+        <div className="carousel__item">
+            <div className={ `certificate${number}` } onClick={ handleClick } />
+        </div>
+    );
+}
+
+
+const ItemBigView = ({ classToDisplay }) => {
+
+    const handleCloseClick = (e) => {
+        document.querySelector(".item__big__view").classList.remove("item__big__view--visible")
+        document.querySelector("body").style.overflow = "visible";
+    }
+
+    return (
+        <div className="item__big__view">
+            <div className={`${ classToDisplay }`} />
+            <div className="close-btn" onClick={ handleCloseClick } ></div>
+        </div>
+    )
+}
 
 export default CertificateCarousel;

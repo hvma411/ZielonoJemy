@@ -6,7 +6,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: 120px 0 0 0;
+        padding: 110px 0 0 0;
         
 
         .about__page {
@@ -16,18 +16,21 @@
             align-items: center;
             width: 100%;
             height: auto;
-            background-color: $about-color;
-            padding: 60px;
+            padding: 0 50px;
+            background-color: white;
 
 
         
             .about__main__wrapper {
                 width: 100%;
+                background-color: $about-color;
+                padding: 25px;
 
                 .photo {
                     float: left;
                     width: 40%;
                     height: 800px;
+                    padding-top: 0;
                     margin-right: 40px;
                     margin-bottom: 20px;
                     background-image: url(/src/scss/assets/IMG_0142.JPG);

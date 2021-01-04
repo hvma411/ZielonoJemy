@@ -3,6 +3,7 @@
         width: 100%;
         height: auto;
         display: flex;
+        position: relative;
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -17,7 +18,7 @@
             width: 100%;
             height: auto;
             background-color: $about-color;
-            padding: 60px 20px 60px 20px;
+            padding: 50px 20px 50px 20px;
             
 
         
@@ -135,78 +136,128 @@
         font-size: 4rem;
         padding: 10px;
         cursor: pointer;
+    }
 
-        .certificate1 {
-            width: 100%;
-            height: 100%;
-            background: url(/src/scss/assets/certificates/cert1.jpg);
-            background-position: center;
-            background-size: contain;
-            background-repeat: no-repeat;;
+    .certificate1 {
+        width: 100%;
+        height: 100%;
+        background: url(/src/scss/assets/certificates/cert1.jpg);
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;;
+    }
+
+    .certificate2 {
+        width: 100%;
+        height: 100%;
+        background: url(/src/scss/assets/certificates/cert2.jpg);
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    .certificate3 {
+        width: 100%;
+        height: 100%;
+        background: url(/src/scss/assets/certificates/cert3.jpg);
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    .certificate4 {
+        width: 100%;
+        height: 100%;
+        background: url(/src/scss/assets/certificates/cert4.jpg);
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    .certificate5 {
+        width: 100%;
+        height: 100%;
+        background: url(/src/scss/assets/certificates/cert5.jpg);
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    .certificate6 {
+        width: 100%;
+        height: 100%;
+        background: url(/src/scss/assets/certificates/cert6.jpg);
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    .certificate7 {
+        width: 100%;
+        height: 100%;
+        background: url(/src/scss/assets/certificates/cert7.jpg);
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    .certificate8 {
+        width: 100%;
+        height: 100%;
+        background: url(/src/scss/assets/certificates/cert8.jpg);
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    .item__big__view {
+        display: none;
+        justify-content: center;
+        align-items: center;
+        padding: 30px;
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: rgba(199, 211, 191, 0.9);
+        top: 0;
+        left: 0;
+        z-index: 100;
+
+        .close-btn {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            top: 19px;
+            right: 15px;
+            cursor: pointer;
         }
 
-        .certificate2 {
+        @mixin close-btn-line {
             width: 100%;
-            height: 100%;
-            background: url(/src/scss/assets/certificates/cert2.jpg);
-            background-position: center;
-            background-size: contain;
-            background-repeat: no-repeat;
+            height: 3px;
+            background-color: $line-color;
+            position: absolute;
+          }
+
+        .close-btn::after, .close-btn::before {
+            @include close-btn-line();
+            content: '';
+            right: 0;
+            transition: transform .1s .2s linear;
         }
 
-        .certificate3 {
-            width: 100%;
-            height: 100%;
-            background: url(/src/scss/assets/certificates/cert3.jpg);
-            background-position: center;
-            background-size: contain;
-            background-repeat: no-repeat;
+        .close-btn::after {
+            transform: translateY(10px) rotate(45deg);
         }
 
-        .certificate4 {
-            width: 100%;
-            height: 100%;
-            background: url(/src/scss/assets/certificates/cert4.jpg);
-            background-position: center;
-            background-size: contain;
-            background-repeat: no-repeat;
+        .close-btn::before {
+            transform: translateY(10px) rotate(-45deg);
         }
 
-        .certificate5 {
-            width: 100%;
-            height: 100%;
-            background: url(/src/scss/assets/certificates/cert5.jpg);
-            background-position: center;
-            background-size: contain;
-            background-repeat: no-repeat;
-        }
+    }
 
-        .certificate6 {
-            width: 100%;
-            height: 100%;
-            background: url(/src/scss/assets/certificates/cert6.jpg);
-            background-position: center;
-            background-size: contain;
-            background-repeat: no-repeat;
-        }
-
-        .certificate7 {
-            width: 100%;
-            height: 100%;
-            background: url(/src/scss/assets/certificates/cert7.jpg);
-            background-position: center;
-            background-size: contain;
-            background-repeat: no-repeat;
-        }
-
-        .certificate8 {
-            width: 100%;
-            height: 100%;
-            background: url(/src/scss/assets/certificates/cert8.jpg);
-            background-position: center;
-            background-size: contain;
-            background-repeat: no-repeat;
-        }
+    .item__big__view--visible {
+        display: flex;
     }
 }
 
@@ -228,13 +279,13 @@
             align-items: center;
             width: 100%;
             height: auto;
-            background-color: $about-color;
-            padding: 60px 40px 60px 40px;
+            padding: 50px 40px 50px 40px;
             
 
         
             .about__main__wrapper {
                 width: 100%;
+                background-color: $about-color;
                 
 
                 .photo {
@@ -281,10 +332,14 @@
             }
 
         }
+
+        .item__big__view {
+            padding: 60px;
+        }
     }
 
     .rec-carousel-wrapper {
-        padding: 10px;
+        padding: 25px 10px;
         background: white;
 
         .rec-arrow-left, .rec-arrow-right {
