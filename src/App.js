@@ -13,7 +13,7 @@ import Main from './Main'
 import HeaderSection from "./components/HeaderSection";
 import Articles from "./components/MenuComponents/Articles";
 import FooterSection from "./components/FooterSection";
-import Recipes from "./components/MenuComponents/Recipes";
+import { Recipes } from "./components/MenuComponents/Recipes";
 import Services from "./components/MenuComponents/Services";
 import About from "./components/MenuComponents/About";
 import Contact from "./components/MenuComponents/Contact";

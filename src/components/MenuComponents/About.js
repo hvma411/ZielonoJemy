@@ -7,6 +7,7 @@ import {
   Switch,
   NavLink,
 } from 'react-router-dom';
+
 import CertificateCarousel from "./CertificateCarousel";
 
 const About = () => {
@@ -34,9 +35,6 @@ const About = () => {
                 
             </div>
             <CertificateCarousel />
-            
-
-
         </section>
     );
 };

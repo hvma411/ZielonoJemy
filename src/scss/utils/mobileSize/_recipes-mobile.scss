@@ -1,235 +1,30 @@
 @media only screen and (min-width: 300px) {
-    .articles {
-        width: 100%;
-        height: auto;
-        padding: 120px 0 60px 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        .articles__page {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-
-            .articles-list {
-                width: 100%;
-                height: 100%;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: flex-start;
-
-                .section__title {
-                    font-size: 1.6rem;
-                    font-weight: 600;
-                    color: $line-color;
-                    padding-left: 2px;
-                }
-
-                .underline {
-                    content: "";
-                    width: 100%;
-                    border-bottom: 3px solid $line-color;
-                    margin-bottom: 5px;
-                }
-
-                .articles__pagination {
-                    width: 100%;
-                    height: auto;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-between;
-                    align-items: center;
-                }
-            }
-        }
-    }
-
     .article-box {
-        width: 100%;
-        height: auto;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: center;
-        background: $about-color;
-        padding: 8px;
-        margin: 5px 0 5px 0;
-        cursor: pointer;
-
         .recipe__photo {
             display: inline-block;
             width: 100%;
             height: auto;
-            padding-top: 100%;
+            padding-top: 60%;
             min-width: 100px;
             min-height: 100px;
             background-image: url(/src/scss/assets/food.JPG);
             background-position: center;
             background-size: cover;
             margin-right: 0;
-            margin-bottom: 8px;
         }
-        
-        .article__data {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: flex-start;
-            color: $line-color;
-
-            .article__title__date {
-                width: 100%;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding-bottom: 3px;
-
-                .title {
-                    font-weight: 600;
-                    font-size: 1.2rem;
-                    letter-spacing: 0.5px
-                }
-
-                .date {
-                    font-weight: 400;
-                    font-size: 0.9rem;
-                }
-            }
-
-            .article__cut__text {
-                font-size: 1.1rem;
-                font-weight: 400;
-                max-width: 720px;
-                padding-bottom: 5px;
-            }
-
-            .hash__tags {
-                width: 100%;
-                display: flex;
-                justify-content: flex-start;
-                align-items: center;
-
-                .tag {
-                    font-weight: 600;
-                    padding-right: 8px;
-                }
-            }
-        }
-    }
-
-    .article-box:hover {
-        background: $main-color;
-        transform: translateY(-1px);
-        -webkit-box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.5); 
-        box-shadow: 0px 4px 6px 0px rgba(0,0,0,0.5);
     }
 
     .latest {
-        width: 100%;
-        height: auto;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-
-        .section__title {
-            font-size: 1.6rem;
-            font-weight: 600;
-            color: $line-color;
-            padding-left: 2px;
-        }
-
-        .underline {
-            content: "";
-            width: 100%;
-            border-bottom: 3px solid $line-color;
-            margin-bottom: 5px;
-        }
-
         .latest-article-box {
-            width: 100%;
-            height: auto;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            margin: 5px 0 5px 0;
-            background: $about-color;
-            padding: 8px;
-            cursor: pointer;
-    
             .recipe__photo {
                 display: inline-block;
                 width: 100%;
-                padding-top: 100%;
+                padding-top: 60%;
                 background-image: url(/src/scss/assets/food.JPG);
                 background-position: center;
                 background-size: cover;
                 margin-bottom: 8px;
             }
-
-            .article__data {
-                width: 100%;
-                height: 100%;
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-start;
-                align-items: flex-start;
-                color: $line-color;
-    
-                .article__title__date {
-                    width: 100%;
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: space-between;
-                    align-items: flex-start;
-                    padding-bottom: 3px;
-    
-                    .title {
-                        font-weight: 600;
-                        font-size: 1.2rem;
-                        letter-spacing: 0.5px
-                    }
-    
-                    .date {
-                        font-weight: 400;
-                        font-size: 0.9rem;
-                    }
-                }
-    
-                .article__cut__text {
-                    font-size: 1.1rem;
-                    font-weight: 400;
-                    max-width: 720px;
-                    padding-bottom: 5px;
-                }
-    
-                .hash__tags {
-                    width: 100%;
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: flex-start;
-                    align-items: flex-start;
-    
-                    .tag {
-                        font-weight: 600;
-                        padding-right: 8px;
-                        margin-top: 2px;
-                    }
-                }
-            }
-        }
-
-        .latest-article-box:hover {
-            background: $main-color;
-            transform: translateY(-1px);
-            -webkit-box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.5); 
-            box-shadow: 0px 4px 6px 0px rgba(0,0,0,0.5);
         }
     }
 }

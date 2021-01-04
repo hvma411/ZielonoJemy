@@ -45,6 +45,7 @@
     "react-fontawesome": "^1.7.1",
     "react-html-parser": "^2.0.2",
     "react-icons": "^3.10.0",
+    "react-instagram-authless-feed": "github:jamesmoriarty/react-instagram-authless-feed#v1.1.1",
     "react-router-dom": "^5.2.0",
     "react-scroll": "^1.7.16",
     "styled-components": "^5.2.1",

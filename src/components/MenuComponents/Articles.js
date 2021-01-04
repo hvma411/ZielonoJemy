@@ -9,6 +9,7 @@ import {
 } from 'react-router-dom';
 import FooterSection from "../FooterSection";
 import HeaderSection from "../HeaderSection";
+import { InstagramFeed } from './Recipes';
 
 const Articles = () => {
     return (
@@ -25,7 +26,10 @@ const Articles = () => {
                             <SingleArticle />
                         </div>
                     </div>
-                <LatestArticle />
+                <div className="right__column">
+                    <LatestArticle />
+                    <InstagramFeed />
+                </div>
                 </div>
             </section>
         </>
