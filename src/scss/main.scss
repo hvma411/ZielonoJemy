@@ -38,4 +38,9 @@
 @import './utils/mobileSize/contact-mobile';
 @import './utils/fullSize/contact';
 
-@import './utils/fullSize/admin';
+@import './utils/mobileSize/article-display';
+
+@import './utils/fullSize/AdminPanelStyles/adminSignIn';
+@import './utils/fullSize/AdminPanelStyles/admin';
+@import './utils/fullSize/AdminPanelStyles/adminDesktop';
+@import './utils/fullSize/AdminPanelStyles/adminArticleDesktop';

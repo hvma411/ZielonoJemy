@@ -42,7 +42,7 @@
                 .form-box {
                     width: 100%;
                     height: auto;
-                    padding: 10px;
+                    padding: 20px;
     
                     h4 {
                         font-size: 1.4rem;
@@ -85,6 +85,7 @@
                         margin-top: -4px;
                         padding-left: 15px;
                         padding-bottom: 30px;
+                        display: flex;
     
                         a, svg {
                             font-size: 2rem;
@@ -92,6 +93,7 @@
                             cursor: pointer;
                             color: $btn-color;
                             text-decoration: none;
+                            display: inline-flex;
                         }
                     }
     

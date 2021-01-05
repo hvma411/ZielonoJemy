@@ -17,19 +17,20 @@ import { Recipes } from "./components/MenuComponents/Recipes";
 import Services from "./components/MenuComponents/Services";
 import About from "./components/MenuComponents/About";
 import Contact from "./components/MenuComponents/Contact";
-import AdminPanel from "./components/AdminPanel/AdminSignIn";
+import AdminPanel from "./components/AdminPanel/AdminPanel";
 import ScrollToTop from "./components/ScrollToTop";
+import ArticleDisplay from './components/MenuComponents/ArticleDisplay';
 
 const App = () => {
     return (
         <Router>
             <ScrollToTop>
-                <HeaderSection />
+                {/* <HeaderSection />
                     <Switch>
                         <Route exact path="/">
                             <Main />
                         </Route>
-                        <Route path="/articles">
+                        <Route exact path="/articles">
                             <Articles/>
                         </Route>
                         <Route path="/recipes">
@@ -44,11 +45,14 @@ const App = () => {
                         <Route path="/contact">
                             <Contact/>
                         </Route>
+                        <Route exact path="/articles/:articleID">
+                            <ArticleDisplay />
+                        </Route>
                     </Switch>
-                <FooterSection />
-                {/* <Route path="/panel">
+                <FooterSection /> */}
+                <Route path="/panel">
                         <AdminPanel />
-                </Route> */}
+                </Route>
             </ScrollToTop>
         </Router>
     );

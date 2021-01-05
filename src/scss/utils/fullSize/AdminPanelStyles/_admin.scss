@@ -1,91 +1,28 @@
 .admin__panel {
     width: 100%;
-    height: 100vh;
+    height: 100%;
+    min-height: 100vh;
     background-color: #f6f7fb;
     display: flex;
     justify-content: center;
-    align-items: center;
-
-    .sign__in {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
-        .logo {
-            width: 200px;
-            height: 200px;
-            background-image: url(/src/scss/assets/logo2.png);
-            background-size: cover;
-            background-position: center;
-        }
-
-        h2 {
-            font-size: 1.8rem;
-            font-weight: 300;
-            padding: 10px;
-        }
-
-        .sign__in--form {
-            display: flex;
-            flex-direction: column;
-            padding: 0 10px 10px 10px;
-
-            input, button {
-                font-size: 1.5rem;
-                padding: 8px 12px 8px 12px;
-                margin: 5px;
-                background: white;
-                border: none;
-                border-radius: 20px;
-                color: #4b6e6c;
-                outline: none;
-                -webkit-box-shadow: 0px 0px 15px 0px rgba(156,156,156,0.83);
-                -moz-box-shadow: 0px 0px 15px 0px rgba(156,156,156,0.83);
-                box-shadow: 0px 0px 15px 0px rgba(156,156,156,0.83);
-            }
-
-            .button__box {
-                width: auto;
-                display: flex;
-            }
-
-            button {
-                width: 100%;
-                background-color: #4b6e6c;
-                color: white;
-                cursor: pointer;
-            }
-
-            input:hover, button:hover {
-                -webkit-box-shadow: 0px 0px 15px 2px rgba(156,156,156,0.83);
-                -moz-box-shadow: 0px 0px 15px 2px rgba(156,156,156,0.83);
-                box-shadow: 0px 0px 15px 2px rgba(156,156,156,0.83);
-            }
-
-            button:active {
-                transform: translateY(0.5px);
-            }
-
-            
-        }
-    }
-
+    align-items: flex-start;
 
     .admin__signed__in {
         width: 100%;
-        height: 100vh;
+        height: 100%;
+        min-height: 100vh;
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-start;
         padding: 20px;
 
         .nav__bar {
             position: fixed;
-            top: 20px;
+            top: 50%;
+            transform: translateY(-50%);
             width: 320px;
             min-width: 320px;
-            height: 100%;
+            height: 95vh;
             margin-right: 20px;
             background: white;
             border-radius: 50px;
@@ -242,15 +179,28 @@
                         display: flex;
                         justify-content: flex-start;
                         align-items: center;
-                        text-align: left;
-                        font-size: 1.2rem;
-                        font-weight: 500;
-                        color: #4b6e6c;
-                        padding: 15px 10px 15px 15px;
-                        margin: 10px 0 10px 0;
-                        background-color: rgba(100, 220, 204, 0.3);
-                        border-radius: 20px;
-                        cursor: pointer;
+
+                        a {
+                            width: 100%;
+                            display: flex;
+                            justify-content: flex-start;
+                            align-items: center;
+                            text-align: left;
+                            font-size: 1.2rem;
+                            font-weight: 500;
+                            color: #4b6e6c;
+                            padding: 15px 10px 15px 15px;
+                            margin: 10px 0 10px 0;
+                            background-color: rgba(100, 220, 204, 0.3);
+                            border-radius: 20px;
+                            cursor: pointer;
+                            outline: none;
+                            text-decoration: none;
+                        }
+
+                        a:hover {
+                            background-color: rgba(100, 220, 204, 0.5);
+                        }
 
                         .ico {
                             width: 30px;
@@ -265,10 +215,6 @@
                             font-size: 1.5rem;
                         }
                     }
-
-                    li:hover {
-                        background-color: rgba(100, 220, 204, 0.5);
-                    }
                 }
             }
         }
@@ -276,6 +222,8 @@
         .display__bar {
             width: 100%;
             height: 100%;
+            display: flex;
+            flex-direction: column;
             margin-left: 350px;
             border-radius: 50px;
             padding: 50px 0 50px 40px;
@@ -283,63 +231,6 @@
             h2 {
                 font-size: 1.5rem;
                 font-weight: 500;
-            }
-
-            .blog__statistics__box {
-                width: 100%;
-                height: auto;
-                display: flex;
-                justify-content: flex-start;
-                flex-wrap: wrap;
-
-                .item__statistics {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    width: 30%;
-                    min-width: 320px;
-                    height: 180px;
-                    background-color: white;
-                    border-radius: 20px;
-                    border: 1px solid #c6c7c9;
-                    margin: 20px 40px 20px 0;
-                    padding: 20px;
-
-                    .item__box {
-                        height: 100%;
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: center;
-                        padding: 10px;
-
-                        .item--counter {
-                            font-size: 4rem;
-                            font-weight: 600;
-                            color: $btn-color;
-                            border-spacing: 0;
-                            padding: 0;
-                        }
-
-                        .item--title {
-                            margin-top: 10px;
-                            font-size: 1.5rem;
-                            font-weight: 500;
-                            color: $line-color;
-                        }
-                    }
-
-                    .item__img {
-                        font-size: 5rem;
-                        padding: 20px;
-                        color: $line-color;
-                    }
-                }
-
-                .item__statistics:hover {
-                    -webkit-box-shadow: 0px 0px 10px -5px rgba(0,0,0,0.85);
-                    -moz-box-shadow: 0px 0px 10px -5px rgba(0,0,0,0.85);
-                    box-shadow: 0px 0px 10px -5px rgba(0,0,0,0.85);
-                }
             }
         }
     }
