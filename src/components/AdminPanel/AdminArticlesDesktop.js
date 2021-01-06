@@ -12,22 +12,14 @@ import firebase from '../../config/firebase';
 
 import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css';
+import ArticleList from './ArticleList';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlusSquare } from "@fortawesome/free-solid-svg-icons";
 
 const AdminArticlesDesktop = () => {
 
-    const getData = () => {
-        firebase.firestore().collection('Articles').onSnapshot((querySnapshot) => {
-            const items = [];
-            querySnapshot.forEach((doc) => {
-                items.push(doc.data());
-            });
-            console.log(items);
-        })
-    }
-
+    const db = firebase.firestore();
 
     const [article, setArticle] = useState({
         title: '',
@@ -42,6 +34,8 @@ const AdminArticlesDesktop = () => {
 
     })
 
+    const [isAdded, setIsAdded] = useState(false);
+
     const modules = {
         toolbar: {
             container: [
@@ -50,7 +44,7 @@ const AdminArticlesDesktop = () => {
                 ['bold', 'italic', 'underline', 'strike', 'blockquote'],
                 [{'list': 'ordered'}, {'list': 'bullet'},
                     {'indent': '-1'}, {'indent': '+1'}],
-                ['link', 'image'],
+                ['link', 'image', 'video'],
                 ['clean'], ['code-block']
             ],
         },
@@ -92,7 +86,6 @@ const AdminArticlesDesktop = () => {
                 [e.target.name]: e.target.value,
             }));
         };
-
     }
 
 
@@ -102,11 +95,6 @@ const AdminArticlesDesktop = () => {
             ...prevState,
             [e.target.name]: e.target.checked,
         }));
-
-        getData();
-
-
-        console.log(article)
     }
     
 
@@ -136,21 +124,69 @@ const AdminArticlesDesktop = () => {
                 hashTags: editedHashTags,
                 currentHashTag: '',
             }));
-        }
-    }
+        };
+    };
 
 
     const handleContentChange = (e) => {
         setArticle(prevState => ({
             ...prevState,
             content: e
-        }))
-    }
+        }));
+    };
+
+
+    const articlesCounterDb = () => {
+        const articlesCounterRef = db.collection('articlesAndRecipes').doc('allPosts');
+
+        const incrementCounter = articlesCounterRef.update({
+            articlesCounter: firebase.firestore.FieldValue.increment(1)
+        });
+    };
+
+
+    const addHashTagsToDb = () => {
+        const tagsRef = db.collection('articlesAndRecipes').doc('listOfTags');
+
+        const setWithTagsMerge = tagsRef.update({
+            articlesTags: firebase.firestore.FieldValue.arrayUnion(...article.hashTags)
+        }, { 
+            merge: true 
+        })
+        .then(() => {
+            console.log("Tags succesfully updated!")
+        })
+        .catch((error) => {
+            console.error("Error while updating tags: ", error);
+        })
+    };
+
+
+    const addArticleToDb = () => {
+        const articlesRef = db.collection('articlesAndRecipes').doc('allPosts').collection('articles');
+
+        addHashTagsToDb();
+        articlesCounterDb();
+
+        const setNewArticle = articlesRef.add({
+            ...article
+        })
+        .then(() => {
+            console.log("Article succesfully added!")
+            setIsAdded(true);
+        })
+        .then(() => {
+            setIsAdded(false);
+        })
+        .catch((error) => {
+            console.error("Error while updating tags: ", error);
+        })
+    };
 
 
     return (
         <div className="desktop__styled__box">
-            <div className="article__adding__box">
+            <div className="data__box">
                 <h4>Dodaj nowy artykuł</h4>
                 <form>
                     <div className="inputs__box">
@@ -183,16 +219,16 @@ const AdminArticlesDesktop = () => {
                         formats={ format }
                     />
                     <div className="btn__box">
-                        <button className="submit__btn">
+                        <button type="button" className="submit__btn" onClick={ addArticleToDb }>
                         <FontAwesomeIcon icon={ faPlusSquare } /> Dodaj</button>
                     </div>
                 </form>
             </div>
-            <div className="article__adding__box">
-                <h4>Lista artykułów</h4>
-            </div>
+            <ArticleList db={ db } isAdded={ isAdded } />
         </div>
     )
 }
+
+
 
 export default AdminArticlesDesktop;

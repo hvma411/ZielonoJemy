@@ -25,7 +25,7 @@ const App = () => {
     return (
         <Router>
             <ScrollToTop>
-                {/* <HeaderSection />
+                <HeaderSection />
                     <Switch>
                         <Route exact path="/">
                             <Main />
@@ -49,10 +49,10 @@ const App = () => {
                             <ArticleDisplay />
                         </Route>
                     </Switch>
-                <FooterSection /> */}
-                <Route path="/panel">
+                <FooterSection />
+                {/* <Route path="/panel">
                         <AdminPanel />
-                </Route>
+                </Route> */}
             </ScrollToTop>
         </Router>
     );
