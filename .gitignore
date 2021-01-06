@@ -1,1 +1,7 @@
 node_modules
+.firebase
+build
+public
+database.rules.json
+firebase.json
+firestore.indexes.jsonfirestore.rules
