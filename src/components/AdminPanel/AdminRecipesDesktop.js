@@ -13,7 +13,7 @@ import firebase from '../../config/firebase';
 import ArticleList from './ArticleList';
 import DocumentAddForm from './DocumentAddForm';
 
-const AdminArticlesDesktop = () => {
+const AdminRecipesDesktop = () => {
 
     const db = firebase.firestore();
 
@@ -21,10 +21,12 @@ const AdminArticlesDesktop = () => {
 
     return (
         <div className="desktop__styled__box">
-            <DocumentAddForm db={ db } setIsAdded={ setIsAdded } typeOfArticle={'article'} />
-            <ArticleList db={ db } isAdded={ isAdded } typeOfArticle={'article'} />
+            <DocumentAddForm db={ db } setIsAdded={ setIsAdded } typeOfArticle={'recipe'} />
+            <ArticleList db={ db } isAdded={ isAdded } typeOfArticle={'recipe'} />
         </div>
     )
 }
 
-export default AdminArticlesDesktop;
+
+
+export default AdminRecipesDesktop;

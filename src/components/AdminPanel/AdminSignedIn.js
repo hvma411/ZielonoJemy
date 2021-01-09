@@ -13,7 +13,7 @@ import AdminDekstop from './AdminDesktop';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretDown, faHome, faNewspaper, faBook, faTools, faRuler, faHeart, faFireAlt, faTasks, faAd } from '@fortawesome/free-solid-svg-icons'
 import AdminArticlesDesktop from "./AdminArticlesDesktop";
-
+import AdminRecipesDesktop from './AdminRecipesDesktop';
 
 const AdminSignedIn = () => {
     return (
@@ -84,6 +84,7 @@ const AdminSignedIn = () => {
                 </div>
                 <Route path="/panel/desktop" component={ AdminDekstop } />
                 <Route path="/panel/articles" component={ AdminArticlesDesktop } />
+                <Route path="/panel/recipes" component={ AdminRecipesDesktop } />
             </div>
         </div>
     )
