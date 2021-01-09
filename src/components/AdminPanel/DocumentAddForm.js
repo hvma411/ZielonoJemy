@@ -17,7 +17,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlusSquare } from "@fortawesome/free-solid-svg-icons";
 
 
-const DocumentAddForm = ({ db, setIsAdded }) => {
+const DocumentAddForm = ({ db, setIsAdded, typeOfArticle }) => {
 
     const [article, setArticle] = useState({
         title: '',
@@ -135,9 +135,29 @@ const DocumentAddForm = ({ db, setIsAdded }) => {
     const articlesCounterDb = () => {
         const articlesCounterRef = db.collection('articlesAndRecipes').doc('allPosts');
 
-        const incrementCounter = articlesCounterRef.update({
-            articlesCounter: firebase.firestore.FieldValue.increment(1)
-        });
+        if (typeOfArticle === 'article') {
+            if (article.isPublished) {
+                const incrementCounter = articlesCounterRef.update({
+                    articlesCounter: firebase.firestore.FieldValue.increment(1),
+                });
+            } else {
+                const incrementCounter = articlesCounterRef.update({
+                    articlesCounter: firebase.firestore.FieldValue.increment(1),
+                    unpublishedArticles: firebase.firestore.FieldValue.increment(1),
+                });
+            }
+        } else {
+            if (article.isPublished) {
+                const incrementCounter = articlesCounterRef.update({
+                    recipesCounter: firebase.firestore.FieldValue.increment(1)
+                });
+            } else {
+                const incrementCounter = articlesCounterRef.update({
+                    recipesCounter: firebase.firestore.FieldValue.increment(1),
+                    unpublishedRecipes: firebase.firestore.FieldValue.increment(1),
+                });
+            }
+        }
     };
 
 
@@ -160,39 +180,62 @@ const DocumentAddForm = ({ db, setIsAdded }) => {
 
     const addArticleToDb = () => {
         const articlesRef = db.collection('articlesAndRecipes').doc('allPosts').collection('articles');
+        const recipesRef = db.collection('articlesAndRecipes').doc('allPosts').collection('recipes');
 
         addHashTagsToDb();
         articlesCounterDb();
 
-        const setNewArticle = articlesRef.add({
-            ...article
-        })
-        .then(() => {
-            console.log("Article succesfully added!")
-            setIsAdded(true);
-        })
-        .then(() => {
-            setIsAdded(false);
-        })
-        .catch((error) => {
-            console.error("Error while updating tags: ", error);
-        })
+        if (typeOfArticle === 'article') {
+            const setNewArticle = articlesRef.add({
+                ...article
+            })
+            .then(() => {
+                console.log("Article succesfully added!")
+                setIsAdded(true);
+            })
+            .then(() => {
+                setIsAdded(false);
+            })
+            .catch((error) => {
+                console.error("Error while updating tags: ", error);
+            })
+        } else {
+            const setNewArticle = recipesRef.add({
+                ...article
+            })
+            .then(() => {
+                console.log("Recipe succesfully added!")
+                setIsAdded(true);
+            })
+            .then(() => {
+                setIsAdded(false);
+            })
+            .catch((error) => {
+                console.error("Error while updating tags: ", error);
+            })
+        }
+
+
     };
 
     return (
         <div className="data__box">
-            <h4>Dodaj nowy artykuł</h4>
+            { typeOfArticle === 'article' ? <h4>Dodaj nowy artykuł</h4> : <h4>Dodaj nowy przepis</h4>}
             <form>
                 <div className="inputs__box">
                     <div className="single__input__box">
                         <h5>Tytuł:</h5>
-                        <input type="text" name="title" id="articleTitle" onChange={ handleFormChange } value={ article.title } placeholder="Wpisz tytuł artykułu..." />
+                        { typeOfArticle === 'article' ? 
+                            <input type="text" name="title" id="articleTitle" onChange={ handleFormChange } value={ article.title } placeholder="Wpisz tytuł artykułu..." />
+                            :
+                            <input type="text" name="title" id="articleTitle" onChange={ handleFormChange } value={ article.title } placeholder="Wpisz tytuł przepisu..." />
+                        }
                         <div className="is__published__box">
                             <label>
                                 <input type="checkbox" name="isPublished" value={ article.isPublished } onChange={ handleCheckboxChange }/>
                                 <span></span>
                             </label>
-                            <h5>Opublikuj artykuł po jego dodaniu</h5>
+                            { typeOfArticle === 'article' ? <h5>Opublikuj artykuł po jego dodaniu</h5> : <h5>Opublikuj przepis po jego dodaniu</h5>}
                         </div>
                     </div>
                     <div className="single__input__box">

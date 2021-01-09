@@ -8,23 +8,63 @@ import {
   NavLink,
 } from 'react-router-dom';
 
+import firebase from '../../config/firebase';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretDown, faHome, faNewspaper, faBook, faTools, faRuler, faHeart, faFireAlt, faTasks, faAd } from '@fortawesome/free-solid-svg-icons'
 
 
 const AdminDekstop = () => {
+
+    const db = firebase.firestore();
+
+    const [statisticsData, setStatisticsData] = useState({
+        articlesCounter: '',
+        recipesCounter: '',
+        promotedCounter: '',
+        guestLikes: '',
+        unpublishedPosts: '',
+        toDoThings: ''
+    })
+
+
+    async function getStatisticsData() {
+        const statisticsDataRef = db.collection('articlesAndRecipes').doc('allPosts');
+
+        await statisticsDataRef.get()
+        .then((doc) => {
+            setStatisticsData( prevState => ({
+                ...prevState,
+                articlesCounter: doc.data().articlesCounter,
+                recipesCounter: doc.data().recipesCounter,
+                unpublishedPosts: doc.data().unpublishedArticles + doc.data().unpublishedRecipes,
+            }))
+        })
+        .catch((error) => {
+            console.error("Error while getting documents: ", error);
+        });
+    };
+
+    useEffect(() => {
+        getStatisticsData();
+    }, [])
+
+
+
     return (
         <div className="blog__statistics__box">
-            <div className="item__statistics">
-                <div className="item__box">
-                    <div className="item--counter">23</div>
-                    <div className="item--title">Napisane artykuły</div>
+            <Link to="/panel/articles">
+                <div className="item__statistics">
+                    <div className="item__box">
+                        <div className="item--counter">{ statisticsData.articlesCounter }</div>
+                        <div className="item--title">Napisane artykuły</div>
+                    </div>
+                    <div className="item__img"><FontAwesomeIcon icon={ faNewspaper } /></div>
                 </div>
-                <div className="item__img"><FontAwesomeIcon icon={ faNewspaper } /></div>
-            </div>
+            </Link>
             <div className="item__statistics">
                 <div className="item__box">
-                    <div className="item--counter">35</div>
+                    <div className="item--counter">{ statisticsData.recipesCounter }</div>
                     <div className="item--title">Dodane przepisy</div>
                 </div>
                 <div className="item__img"><FontAwesomeIcon icon={ faBook } /></div>
@@ -45,8 +85,8 @@ const AdminDekstop = () => {
             </div>
             <div className="item__statistics">
                 <div className="item__box">
-                    <div className="item--counter">8</div>
-                    <div className="item--title">Zaplanowane wpisy</div>
+                    <div className="item--counter">{ statisticsData.unpublishedPosts }</div>
+                    <div className="item--title">Wpisy bez publikacji</div>
                 </div>
                 <div className="item__img"><FontAwesomeIcon icon={ faRuler } /></div>
             </div>
