@@ -21,8 +21,8 @@ const AdminArticlesDesktop = () => {
 
     return (
         <div className="desktop__styled__box">
-            <DocumentAddForm db={ db } setIsAdded={ setIsAdded } typeOfArticle={'article'} />
-            <ArticleList db={ db } isAdded={ isAdded } typeOfArticle={'article'} />
+            <DocumentAddForm db={ db } setIsAdded={ setIsAdded } typeOfRequest={'article'} />
+            <ArticleList db={ db } isAdded={ isAdded } typeOfRequest={'article'} />
         </div>
     )
 }

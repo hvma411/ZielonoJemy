@@ -19,13 +19,13 @@ import About from "./components/MenuComponents/About";
 import Contact from "./components/MenuComponents/Contact";
 import AdminPanel from "./components/AdminPanel/AdminPanel";
 import ScrollToTop from "./components/ScrollToTop";
-import ArticleDisplay from './components/MenuComponents/ArticleDisplay';
+import DocumentDisplay from './components/MenuComponents/DocumentDisplay';
 
 const App = () => {
     return (
         <Router>
             <ScrollToTop>
-                {/* <HeaderSection />
+                <HeaderSection />
                     <Switch>
                         <Route exact path="/">
                             <Main />
@@ -45,14 +45,17 @@ const App = () => {
                         <Route path="/contact">
                             <Contact/>
                         </Route>
-                        <Route exact path="/articles/:articleID">
-                            <ArticleDisplay />
+                        <Route exact path="/articles/:documentID">
+                            <DocumentDisplay />
+                        </Route>
+                        <Route exact path="/recipes/:documentID">
+                            <DocumentDisplay />
                         </Route>
                     </Switch>
-                <FooterSection /> */}
-                <Route path="/panel">
+                <FooterSection />
+                {/* <Route path="/panel">
                         <AdminPanel />
-                </Route>
+                </Route> */}
             </ScrollToTop>
         </Router>
     );

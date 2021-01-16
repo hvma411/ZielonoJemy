@@ -62,13 +62,15 @@ const AdminDekstop = () => {
                     <div className="item__img"><FontAwesomeIcon icon={ faNewspaper } /></div>
                 </div>
             </Link>
-            <div className="item__statistics">
-                <div className="item__box">
-                    <div className="item--counter">{ statisticsData.recipesCounter }</div>
-                    <div className="item--title">Dodane przepisy</div>
+            <Link to="/panel/recipes">
+                <div className="item__statistics">
+                    <div className="item__box">
+                        <div className="item--counter">{ statisticsData.recipesCounter }</div>
+                        <div className="item--title">Dodane przepisy</div>
+                    </div>
+                    <div className="item__img"><FontAwesomeIcon icon={ faBook } /></div>
                 </div>
-                <div className="item__img"><FontAwesomeIcon icon={ faBook } /></div>
-            </div>
+            </Link>
             <div className="item__statistics">
                 <div className="item__box">
                     <div className="item--counter">8/8</div>

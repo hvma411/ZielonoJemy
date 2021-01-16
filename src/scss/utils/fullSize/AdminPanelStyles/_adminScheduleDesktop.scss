@@ -1,0 +1,52 @@
+.schedule-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    h4 {
+        width: 100%;
+    }
+
+    .unpublished-posts-box {
+        width: 48%;
+        min-width: 300px;
+        padding-bottom: 20px;
+
+        h5 {
+            font-size: 1rem;
+            color: $line-color;
+            font-weight: 600;
+            padding-bottom: 10px;
+        }
+
+        ul {
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            list-style: none;
+            width: 100%;
+            border: 1px solid $nav-el-hover-color;
+            border-radius: 20px;
+            padding: 10px;
+
+            li {
+                padding: 3px 15px 3px 15px;
+                color: $line-color;
+                border-radius: 20px;
+                font-weight: 400;
+                font-size: 1rem;
+                margin: 5px;
+                background: $nav-el-color;
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            li:hover {
+                background: $nav-el-hover-color;
+            }
+        }
+    }
+}

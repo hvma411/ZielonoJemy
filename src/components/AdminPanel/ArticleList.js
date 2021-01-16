@@ -14,7 +14,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Pagination from './Pagination';
 import { faEdit, faSyncAlt, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 
-const ArticleList = ({ db, isAdded, typeOfArticle }) => {
+const ArticleList = ({ db, isAdded, typeOfRequest }) => {
 
     const [articles, setArticles] = useState([])
     const [loading, setLoading] = useState(true);
@@ -30,7 +30,8 @@ const ArticleList = ({ db, isAdded, typeOfArticle }) => {
         
         let articlesArr = [];
 
-        if (typeOfArticle === 'articles') {
+        if (typeOfRequest === 'article') {
+
             await articlesRef.get()
             .then((querySnapshot) => {
                 querySnapshot.forEach((doc) => {
@@ -86,7 +87,7 @@ const ArticleList = ({ db, isAdded, typeOfArticle }) => {
     if (!loading) {
         return (
             <div className="data__box article__list">
-                { typeOfArticle === 'article' ? <h4>Lista artykułów:</h4> : <h4>Lista przepisów:</h4>}
+                { typeOfRequest === 'article' ? <h4>Lista artykułów:</h4> : <h4>Lista przepisów:</h4>}
                 <div className="refresh__btn" onClick={ getAllArticles }>
                     <FontAwesomeIcon icon={ faSyncAlt } />
                 </div>
@@ -98,7 +99,7 @@ const ArticleList = ({ db, isAdded, typeOfArticle }) => {
                                 <span>{ timeStampToString(article.createDate.seconds) }</span>
                             </div>
                             <div className="content__box">
-                                {console.log(parse(article.content))}
+                                kontent?
                             </div>
                             <div className="action__btns__box">
                                 <ul>
@@ -126,7 +127,7 @@ const ArticleList = ({ db, isAdded, typeOfArticle }) => {
     } else {
         return (
             <div className="data__box article__list">
-                { typeOfArticle === 'article' ? <h4>Lista artykułów:</h4> : <h4>Lista przepisów:</h4>}
+                { typeOfRequest === 'article' ? <h4>Lista artykułów:</h4> : <h4>Lista przepisów:</h4>}
                 <div className="refresh__btn" onClick={ getAllArticles }>
                     <FontAwesomeIcon icon={ faSyncAlt } />
                 </div>

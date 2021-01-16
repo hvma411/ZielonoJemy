@@ -17,7 +17,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlusSquare } from "@fortawesome/free-solid-svg-icons";
 
 
-const DocumentAddForm = ({ db, setIsAdded, typeOfArticle }) => {
+const DocumentAddForm = ({ db, setIsAdded, typeOfRequest }) => {
 
     const [article, setArticle] = useState({
         title: '',
@@ -135,7 +135,7 @@ const DocumentAddForm = ({ db, setIsAdded, typeOfArticle }) => {
     const articlesCounterDb = () => {
         const articlesCounterRef = db.collection('articlesAndRecipes').doc('allPosts');
 
-        if (typeOfArticle === 'article') {
+        if (typeOfRequest === 'article') {
             if (article.isPublished) {
                 const incrementCounter = articlesCounterRef.update({
                     articlesCounter: firebase.firestore.FieldValue.increment(1),
@@ -185,7 +185,7 @@ const DocumentAddForm = ({ db, setIsAdded, typeOfArticle }) => {
         addHashTagsToDb();
         articlesCounterDb();
 
-        if (typeOfArticle === 'article') {
+        if (typeOfRequest === 'article') {
             const setNewArticle = articlesRef.add({
                 ...article
             })
@@ -220,12 +220,12 @@ const DocumentAddForm = ({ db, setIsAdded, typeOfArticle }) => {
 
     return (
         <div className="data__box">
-            { typeOfArticle === 'article' ? <h4>Dodaj nowy artykuł</h4> : <h4>Dodaj nowy przepis</h4>}
+            { typeOfRequest === 'article' ? <h4>Dodaj nowy artykuł</h4> : <h4>Dodaj nowy przepis</h4>}
             <form>
                 <div className="inputs__box">
                     <div className="single__input__box">
                         <h5>Tytuł:</h5>
-                        { typeOfArticle === 'article' ? 
+                        { typeOfRequest === 'article' ? 
                             <input type="text" name="title" id="articleTitle" onChange={ handleFormChange } value={ article.title } placeholder="Wpisz tytuł artykułu..." />
                             :
                             <input type="text" name="title" id="articleTitle" onChange={ handleFormChange } value={ article.title } placeholder="Wpisz tytuł przepisu..." />
@@ -235,7 +235,7 @@ const DocumentAddForm = ({ db, setIsAdded, typeOfArticle }) => {
                                 <input type="checkbox" name="isPublished" value={ article.isPublished } onChange={ handleCheckboxChange }/>
                                 <span></span>
                             </label>
-                            { typeOfArticle === 'article' ? <h5>Opublikuj artykuł po jego dodaniu</h5> : <h5>Opublikuj przepis po jego dodaniu</h5>}
+                            { typeOfRequest === 'article' ? <h5>Opublikuj artykuł po jego dodaniu</h5> : <h5>Opublikuj przepis po jego dodaniu</h5>}
                         </div>
                     </div>
                     <div className="single__input__box">

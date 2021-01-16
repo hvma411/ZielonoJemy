@@ -21,8 +21,8 @@ const AdminRecipesDesktop = () => {
 
     return (
         <div className="desktop__styled__box">
-            <DocumentAddForm db={ db } setIsAdded={ setIsAdded } typeOfArticle={'recipe'} />
-            <ArticleList db={ db } isAdded={ isAdded } typeOfArticle={'recipe'} />
+            <DocumentAddForm db={ db } setIsAdded={ setIsAdded } typeOfRequest={'recipe'} />
+            <ArticleList db={ db } isAdded={ isAdded } typeOfRequest={'recipe'} />
         </div>
     )
 }

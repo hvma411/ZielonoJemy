@@ -14,6 +14,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretDown, faHome, faNewspaper, faBook, faTools, faRuler, faHeart, faFireAlt, faTasks, faAd } from '@fortawesome/free-solid-svg-icons'
 import AdminArticlesDesktop from "./AdminArticlesDesktop";
 import AdminRecipesDesktop from './AdminRecipesDesktop';
+import AdminScheduleDesktop from "./AdminScheduleDesktop";
 
 const AdminSignedIn = () => {
     return (
@@ -41,37 +42,37 @@ const AdminSignedIn = () => {
                 <nav>
                     <ul>
                         <li>
-                            <NavLink to="/panel/desktop">
+                            <NavLink to="/panel/desktop" activeStyle={{ background: "rgba(100, 220, 204, 0.5)" }}>
                                 <div className="ico"><FontAwesomeIcon icon={ faHome } /></div>Pulpit
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/panel/articles">
+                            <NavLink to="/panel/articles" activeStyle={{ background: "rgba(100, 220, 204, 0.5)" }}>
                                 <div className="ico"><FontAwesomeIcon icon={ faNewspaper } /></div> Artykuły
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/panel/recipes">
+                            <NavLink to="/panel/recipes" activeStyle={{ background: "rgba(100, 220, 204, 0.5)" }}>
                                 <div className="ico"><FontAwesomeIcon icon={ faBook } /></div> Przepisy
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/panel/promoted">
+                            <NavLink to="/panel/promoted" activeStyle={{ background: "rgba(100, 220, 204, 0.5)" }}>
                                 <div className="ico"><FontAwesomeIcon icon={ faFireAlt } /></div> Promowane
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/panel/schedule">
+                            <NavLink to="/panel/schedule" activeStyle={{ background: "rgba(100, 220, 204, 0.5)" }}>
                                 <div className="ico"><FontAwesomeIcon icon={ faRuler } /></div> Harmonogram
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to='/panel/to-do-list'>
+                            <NavLink to='/panel/to-do-list' activeStyle={{ background: "rgba(100, 220, 204, 0.5)" }}>
                                 <div className="ico"><FontAwesomeIcon icon={ faTasks } /></div> To-do-list
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to='/panel/settings'>
+                            <NavLink to='/panel/settings' activeStyle={{ background: "rgba(100, 220, 204, 0.5)" }}>
                                 <div className="ico"><FontAwesomeIcon icon={ faTools } /></div> Ustawienia
                             </NavLink>
                         </li>
@@ -82,9 +83,10 @@ const AdminSignedIn = () => {
                 <div className="title__box">
                     <h2>Pulpit</h2>
                 </div>
-                <Route path="/panel/desktop" component={ AdminDekstop } />
+                <Route exact path="/panel/desktop" component={ AdminDekstop } />
                 <Route path="/panel/articles" component={ AdminArticlesDesktop } />
                 <Route path="/panel/recipes" component={ AdminRecipesDesktop } />
+                <Route path="/panel/schedule" component={ AdminScheduleDesktop } />
             </div>
         </div>
     )
