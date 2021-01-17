@@ -25,7 +25,7 @@ const App = () => {
     return (
         <Router>
             <ScrollToTop>
-                <HeaderSection />
+                {/* <HeaderSection />
                     <Switch>
                         <Route exact path="/">
                             <Main />
@@ -33,7 +33,7 @@ const App = () => {
                         <Route exact path="/articles">
                             <Articles/>
                         </Route>
-                        <Route path="/recipes">
+                        <Route exact path="/recipes">
                             <Recipes/>
                         </Route>
                         <Route path="/services">
@@ -45,17 +45,17 @@ const App = () => {
                         <Route path="/contact">
                             <Contact/>
                         </Route>
-                        <Route exact path="/articles/:documentID">
+                        <Route exact path="/articles/:typeOf/:documentID">
                             <DocumentDisplay />
                         </Route>
-                        <Route exact path="/recipes/:documentID">
+                        <Route exact path="/recipes/:typeOf/:documentID">
                             <DocumentDisplay />
                         </Route>
                     </Switch>
-                <FooterSection />
-                {/* <Route path="/panel">
+                <FooterSection /> */}
+                <Route path="/panel">
                         <AdminPanel />
-                </Route> */}
+                </Route>
             </ScrollToTop>
         </Router>
     );

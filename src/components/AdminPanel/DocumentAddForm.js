@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { Component, useState, useEffect, createRef, useRef } from "react";
 import ReactDOM from "react-dom";
 import {
   HashRouter,
@@ -9,15 +9,16 @@ import {
 } from 'react-router-dom';
 
 import firebase from '../../config/firebase';
-
-import ReactQuill from 'react-quill'
+import { v4 as uuidv4 } from 'uuid';
+import Compressor from 'compressorjs';
+import ReactQuill, { Quill } from 'react-quill'
 import 'react-quill/dist/quill.snow.css';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlusSquare } from "@fortawesome/free-solid-svg-icons";
-
+import { faChevronCircleDown, faChevronCircleUp, faImage, faPlusSquare, faSortDown, faSortUp } from "@fortawesome/free-solid-svg-icons";
 
 const DocumentAddForm = ({ db, setIsAdded, typeOfRequest }) => {
+
+    const storageRef = firebase.storage();
 
     const [article, setArticle] = useState({
         title: '',
@@ -25,12 +26,17 @@ const DocumentAddForm = ({ db, setIsAdded, typeOfRequest }) => {
         currentHashTag: '',
         hashTags: [],
         createDate: new Date(),
+        hasFeatureImage: false,
         featureImage: '',
+        featureImagePosition: 'img-center',
         isPublished: false,
+        isPromoted: false,
         lastModified: new Date(),
         createUserId: ''
 
     })
+
+    const quillRef = useRef()
 
     const modules = {
         toolbar: {
@@ -43,6 +49,9 @@ const DocumentAddForm = ({ db, setIsAdded, typeOfRequest }) => {
                 ['link', 'image', 'video'],
                 ['clean'], ['code-block']
             ],
+            handlers: {
+                'image': () => quillImageCallBack()
+            }
         },
         clipboard: {
             natchVisual: false,
@@ -214,9 +223,106 @@ const DocumentAddForm = ({ db, setIsAdded, typeOfRequest }) => {
                 console.error("Error while updating tags: ", error);
             })
         }
-
-
     };
+
+    const fileCompress = (file) => {
+        return new Promise((resolve, reject) => {
+            new Compressor(file, {
+                file: 'File',
+                quality: 0.5,
+                maxWidth: 640,
+                maxHeight: 640,
+                success(file) {
+                    return resolve({
+                        success: true,
+                        file: file,
+                    })
+                },
+                error(err) {
+                    return resolve({
+                        success: false,
+                        message: err.message
+                    })
+                }
+            })
+        })
+    }
+
+    const quillImageCallBack = () => {
+        console.log(quillRef)
+        const input = document.createElement('input');
+        input.setAttribute('type', 'file');
+        input.setAttribute('accept', 'image/*');
+        input.click();
+        console.log(input)
+        input.onChange = async () => {
+            console.log('anc')
+            const file = input.files[0];
+            console.log(file)
+            const compressState = await fileCompress(file);
+            if (compressState.success) {
+                const fileName = uuidv4()
+                storageRef.ref().child("articlesImages/" + fileName).put(compressState.file)
+                    .then(async snapshot => {
+                        const downloadURL = await storageRef.ref().child("articlesImages/" + fileName).getDownloadURL()
+                        let quillRef = quillRef.getEditor();
+                        const range = quillRef.getSelection(true);
+                        quillRef.insertEmbed(range.index, 'image', downloadURL)
+
+                    }
+                )
+            }
+        }
+    }
+
+    const uploadImageCallBack = (e) => {
+        return new Promise(async (resolve, reject) => {
+            const file = e.target.files[0];
+            const fileName = uuidv4()
+            storageRef.ref().child("articlesImages/" + fileName).put(file)
+                .then(async snapshot => {
+
+                    const downloadURL = await storageRef.ref().child("articlesImages/" + fileName).getDownloadURL()
+                    resolve({
+                        success: true,
+                        data: {link: downloadURL}
+                    })
+                }
+            )
+        })
+    }
+
+    const handleImagePosition = (e) => {
+        if (e.target.dataset.direction === "btnUp") {
+
+            if(article.featureImagePosition === "img-bottom") {
+                setArticle(prevState => ({
+                    ...prevState,
+                    featureImagePosition: "img-center"
+                }))
+
+            } else if (article.featureImagePosition === "img-center") {
+                setArticle(prevState => ({
+                    ...prevState,
+                    featureImagePosition: "img-top"
+                }))
+            }
+        } else if (e.target.dataset.direction === "btnDown") {
+
+            if(article.featureImagePosition === "img-top") {
+                setArticle(prevState => ({
+                    ...prevState,
+                    featureImagePosition: "img-center"
+                }))
+
+            } else if (article.featureImagePosition === "img-center") {
+                setArticle(prevState => ({
+                    ...prevState,
+                    featureImagePosition: "img-bottom"
+                }))
+            }
+        }
+    }
 
     return (
         <div className="data__box">
@@ -232,10 +338,17 @@ const DocumentAddForm = ({ db, setIsAdded, typeOfRequest }) => {
                         }
                         <div className="is__published__box">
                             <label>
-                                <input type="checkbox" name="isPublished" value={ article.isPublished } onChange={ handleCheckboxChange }/>
-                                <span></span>
+                                <input className="checkbox--hidden" type="checkbox" name="isPublished" value={ article.isPublished } onChange={ handleCheckboxChange }/>
+                                <span className="checkbox--visible"></span>
                             </label>
                             { typeOfRequest === 'article' ? <h5>Opublikuj artykuł po jego dodaniu</h5> : <h5>Opublikuj przepis po jego dodaniu</h5>}
+                        </div>
+                        <div className="is__published__box">
+                            <label>
+                                <input className="checkbox--hidden" type="checkbox" name="isPromoted" value={ article.isPromoted } onChange={ handleCheckboxChange }/>
+                                <span className="checkbox--visible"></span>
+                            </label>
+                            { typeOfRequest === 'article' ? <h5>Dodaj artykuł do listy promowanych</h5> : <h5>Dodaj przepis do listy promowanych</h5>}
                         </div>
                     </div>
                     <div className="single__input__box">
@@ -248,14 +361,43 @@ const DocumentAddForm = ({ db, setIsAdded, typeOfRequest }) => {
                 </div>
                 <h5>Treść:</h5>
                 <ReactQuill
-                    // ref={ (el) => this.quill = el }
+                    ref={ el => quillRef }
                     value={ article.content }
                     onChange={ handleContentChange }
                     theme="snow"
                     modules={ modules }
                     formats={ format }
+                    readOnly={ false }
                 />
                 <div className="btn__box">
+                    <div className="is__published__box">
+                        <label className="custom-file-upload">
+                            <FontAwesomeIcon icon={ faImage } />
+                            <input type="file" accept="image/*"
+                                onChange={ async (e) => {
+                                    const uploadState = await uploadImageCallBack(e)
+                                    if(uploadState.success) {
+                                        setArticle(prevState => ({
+                                            ...prevState,
+                                            hasFeatureImage: true,
+                                            featureImage: uploadState.data.link
+                                        }))
+                                    }
+                                }
+                            } />
+                            { typeOfRequest === 'article' ? 'Główne zdjęcie artykułu' : 'Dodaj zdjęcie przepisu'}
+                        </label>
+                        { article.hasFeatureImage ? <img className={ `article-main-image ${article.featureImagePosition}` } src={ article.featureImage } />
+                        : <img className="article-main-image" />}
+                        <div className="img-position-arrows">
+                            <div className="position-btn" data-direction="btnUp" onClick={ handleImagePosition }>
+                                <FontAwesomeIcon icon={ faChevronCircleUp } />
+                            </div>
+                            <div className="position-btn" data-direction="btnDown" onClick={ handleImagePosition }>
+                                <FontAwesomeIcon icon={ faChevronCircleDown } />
+                            </div>
+                        </div>
+                    </div>
                     <button type="button" className="submit__btn" onClick={ addArticleToDb }>
                     <FontAwesomeIcon icon={ faPlusSquare } /> Dodaj</button>
                 </div>

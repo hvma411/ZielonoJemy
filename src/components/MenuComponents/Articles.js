@@ -77,7 +77,7 @@ const Articles = () => {
                         <span className="underline"></span>
                         <div className="articles__pagination">
                             {currentPosts.map((article, idx) => (
-                                <Link key={ idx } to={'articles/' + article.id}>
+                                <Link key={ idx } to={'/articles/' + 'art/' + article.id}>
                                     <SingleArticle article={ article } />
                                 </Link>
                             ))}

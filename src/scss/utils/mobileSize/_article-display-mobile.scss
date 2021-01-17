@@ -29,6 +29,7 @@
                     background-size: cover;
                     background-position: center;
                     margin-bottom: 20px;
+                    object-fit: cover;
                 }
 
                 &__content {
@@ -52,6 +53,10 @@
                         padding-bottom: 10px;
                     }
 
+                    strong {
+                        font-weight: 600;
+                    }
+
                     blockquote {
                         display: block;
                         margin-top: 1em;
@@ -65,13 +70,78 @@
                     ol, ul {
                         list-style-position: inside;
                     }
+
+                    .underline {
+                        display: block;
+                        margin: 10px 0 10px 0;
+                        content: '';
+                        width: 100%;
+                        border-bottom: 3px solid $line-color;
+                    }
+
+                    .tags-actions-row {
+                        width: 100%;
+                        height: auto;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+
+                        .tags-box {
+                            width: 50%;
+                            display: flex;
+                            flex-direction: column;
+
+                            h4 {
+                                font-size: 0.8rem;
+                            }
+
+                            .tags-list {
+                                padding-left: 0.3em;
+                                list-style: none;
+                                display: flex;
+                                flex-wrap: wrap;
+                                justify-content: flex-start;
+                                align-items: center;
+                                
+
+                                .tag {
+                                    list-style: none;
+                                    padding-left: 0;
+                                    margin-right: 0.5em;
+                                    font-size: 1rem;
+                                    font-weight: 600;
+                                    cursor: pointer;
+                                }
+
+                                .tag::before {
+                                    content: none;
+                                }
+                            }
+
+                        }
+
+                        .actions-box {
+                            display: flex;
+                            justify-content: flex-end;
+                            align-items: center;
+
+                            .icon-box {
+                                margin-left: 0.5em;
+                                cursor: pointer;
+
+                                svg {
+                                    font-size: 1.5rem;
+                                }
+                            }
+                        }
+                    }
                 }
             }
 
             .sidebar {
                 width: 30%;
                 height: 300px;
-                background-color: yellow;
+                background-color: $about-color;
                 height: auto;
             }
         }

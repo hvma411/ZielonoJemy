@@ -68,14 +68,12 @@
             width: 100%;
             height: auto;
             display: flex;
-            // flex-wrap: wrap;
             flex-direction: row;
             justify-content: space-between;
             align-items: flex-start;
 
             .single__input__box {
-                // width: 50%;
-                // max-width: 50%;
+
                 width: 50%;
                 min-width: 320px;
             }
@@ -112,7 +110,7 @@
                 padding-left: 10px;
             }
 
-            input {
+            .checkbox--hidden {
                 visibility: hidden;
                 display: block;
                 height: 0;
@@ -121,7 +119,36 @@
                 overflow: hidden;
             }
 
-            span {
+            input[type="file"] {
+                display: none;
+            }
+
+            .custom-file-upload {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px 20px 15px 20px;
+                margin-right: 10px;
+                font-size: 1.2rem;
+                font-weight: 500;
+                color: #4b6e6c;
+                border-radius: 20px;
+                background: rgba(100, 220, 204, 0.3);
+                border: none;
+                outline: none;
+                cursor: pointer;
+    
+                svg {
+                    font-size: 1.5rem;
+                    margin-right: 10px;
+                }
+            }
+
+            .custom-file-upload:hover {
+                background-color: rgba(100, 220, 204, 0.5);
+            }
+
+            .checkbox--visible {
                 height: 20px;
                 width: 20px;
                 border: 1px solid #c6c7c9;
@@ -142,11 +169,14 @@
 
     .hash__tags__box {
         width: 100%;
+        max-width: 100%;
         height: auto;
         min-height: 40px;
         display: flex;
+        flex-wrap: wrap;
 
         .hash__tag {
+            min-height: 30px;
             padding: 3px 15px 3px 15px;
             color: white;
             border-radius: 20px;
@@ -187,6 +217,47 @@
                 font-size: 1.5rem;
                 margin-right: 10px;
             }
+        }
+
+        .article-main-image {
+            width: 70px;
+            height: 55px;
+            background: url(/src/scss/assets/no-image.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            object-fit: cover;
+        }
+
+        .img-position-arrows {
+            width: 70px;
+            height: 70px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+
+            .position-btn {
+                border: none;
+                cursor: pointer;
+
+                svg {
+                    font-size: 2rem;
+                    pointer-events: none;
+                }
+            }
+        }
+
+        .img-top {
+            object-position: top;
+        }
+
+        .img-center {
+            object-position: center;
+        }
+
+        .img-bottom {
+            object-position: bottom;
         }
 
         .submit__btn:hover {

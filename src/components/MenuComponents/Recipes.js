@@ -79,7 +79,7 @@ const Recipes = () => {
                         <span className="underline"></span>
                         <div className="articles__pagination">
                             {currentPosts.map((recipe, idx) => (
-                                <Link key={ idx } to={'recipes/' + recipe.id}>
+                                <Link key={ idx } to={'/recipes/' + 'rec/' + recipe.id}>
                                     <SingleRecipe recipe={ recipe } />
                                 </Link>
                             ))}
