@@ -15,16 +15,15 @@ const AboutBlogSection = () => {
 
   const [latestArticle, setLatestArticle] = useState([])
   const [latestRecipe, setLatestRecipe] = useState([])
-  const [loading, setLoading] = useState(true);
+  const [loadingArticles, setLoadingArticles] = useState(true);
+  const [loadingRecipes, setLoadingRecipes] = useState(true);
 
 
   async function getAllArticles() {
 
       const articlesRef = await db.collection('articlesAndRecipes').doc('allPosts').collection('articles');
-      const recipesRef = await db.collection('articlesAndRecipes').doc('allPosts').collection('recipes');
 
       let latestArticleArr = [];
-      let latestRecipeArr = [];
 
       await articlesRef.where('isPublished', '==', true).orderBy('createDate', 'desc').limit(1).get().then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
@@ -32,27 +31,35 @@ const AboutBlogSection = () => {
           });
       })
       .catch((error) => {
-          setLoading(true);
+          setLoadingArticles(true);
           console.error("Error while getting documents: ", error);
       });
       setLatestArticle(latestArticleArr)
-      setLoading(false);
+      setLoadingArticles(false);
+  };
+
+  async function getAllRecipes() {
+
+      const recipesRef = await db.collection('articlesAndRecipes').doc('allPosts').collection('recipes');
+
+      let latestRecipeArr = [];
 
       await recipesRef.where('isPublished', '==', true).orderBy('createDate', 'desc').limit(1).get().then((querySnapshot) => {
-            querySnapshot.forEach((doc) => {
-                latestRecipeArr.push({ id: doc.id, ...doc.data() })
-            });
+        querySnapshot.forEach((doc) => {
+            latestRecipeArr.push({ id: doc.id, ...doc.data() })
+        });
       })
       .catch((error) => {
-          setLoading(true);
+          setLoadingRecipes(true);
           console.error("Error while getting documents: ", error);
       });
       setLatestRecipe(latestRecipeArr);
-      setLoading(false);
-  };
+      setLoadingRecipes(false);
+  }
 
   useEffect(() => {
-    getAllArticles();
+      getAllArticles();
+      getAllRecipes();
   }, [])
 
   // const setPublishedArticles = (latestArticle) => {
@@ -67,6 +74,8 @@ const AboutBlogSection = () => {
   //     return publishedArticles;
   // }
 
+  // console.log(latestArticle[0].featureImage)
+  console.log(latestRecipe)
   
     return (
         <section className="about-blog-section">
@@ -81,11 +90,9 @@ const AboutBlogSection = () => {
             </div>
             <div className="articles-recipes container">
               <div className="short-line-left"></div>
-              <div className="new__article post">
-                {loading ? <h1>abc</h1> : <h1>{ latestArticle[0].id }</h1>}
-              </div>
+              { loadingArticles ? <div className="new__article post"></div> : <img src={ latestArticle[0].featureImage } className="new__article post" /> }
               <div className="logo"></div>
-              <div className="new__recipe post"></div>
+              { loadingRecipes ? <div className="new__recipe post"></div> : <img src={ latestRecipe[0].featureImage } className="new__recipe post" /> }
               <div className="short-line-right"></div>
             </div>
             <div className="new-recipe-title-box">

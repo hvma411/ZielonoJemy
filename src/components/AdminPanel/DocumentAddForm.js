@@ -11,7 +11,7 @@ import {
 import firebase from '../../config/firebase';
 import { v4 as uuidv4 } from 'uuid';
 import Compressor from 'compressorjs';
-import ReactQuill, { Quill } from 'react-quill'
+import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronCircleDown, faChevronCircleUp, faImage, faPlusSquare, faSortDown, faSortUp } from "@fortawesome/free-solid-svg-icons";
@@ -36,7 +36,7 @@ const DocumentAddForm = ({ db, setIsAdded, typeOfRequest }) => {
 
     })
 
-    const quillRef = useRef()
+    // const quillRef = useRef()
 
     const modules = {
         toolbar: {
@@ -49,9 +49,9 @@ const DocumentAddForm = ({ db, setIsAdded, typeOfRequest }) => {
                 ['link', 'image', 'video'],
                 ['clean'], ['code-block']
             ],
-            handlers: {
-                'image': () => quillImageCallBack()
-            }
+            // handlers: {
+            //     'image': () => quillImageCallBack()
+            // }
         },
         clipboard: {
             natchVisual: false,
@@ -155,6 +155,12 @@ const DocumentAddForm = ({ db, setIsAdded, typeOfRequest }) => {
                     unpublishedArticles: firebase.firestore.FieldValue.increment(1),
                 });
             }
+
+            if (article.isPromoted) {
+                const incrementCounter = articlesCounterRef.update({
+                    promotedArticles: firebase.firestore.FieldValue.increment(1),
+                })
+            }
         } else {
             if (article.isPublished) {
                 const incrementCounter = articlesCounterRef.update({
@@ -165,6 +171,12 @@ const DocumentAddForm = ({ db, setIsAdded, typeOfRequest }) => {
                     recipesCounter: firebase.firestore.FieldValue.increment(1),
                     unpublishedRecipes: firebase.firestore.FieldValue.increment(1),
                 });
+            }
+
+            if (article.isPromoted) {
+                const incrementCounter = articlesCounterRef.update({
+                    promotedRecipes: firebase.firestore.FieldValue.increment(1),
+                })
             }
         }
     };
@@ -225,55 +237,55 @@ const DocumentAddForm = ({ db, setIsAdded, typeOfRequest }) => {
         }
     };
 
-    const fileCompress = (file) => {
-        return new Promise((resolve, reject) => {
-            new Compressor(file, {
-                file: 'File',
-                quality: 0.5,
-                maxWidth: 640,
-                maxHeight: 640,
-                success(file) {
-                    return resolve({
-                        success: true,
-                        file: file,
-                    })
-                },
-                error(err) {
-                    return resolve({
-                        success: false,
-                        message: err.message
-                    })
-                }
-            })
-        })
-    }
+    // const fileCompress = (file) => {
+    //     return new Promise((resolve, reject) => {
+    //         new Compressor(file, {
+    //             file: 'File',
+    //             quality: 0.5,
+    //             maxWidth: 640,
+    //             maxHeight: 640,
+    //             success(file) {
+    //                 return resolve({
+    //                     success: true,
+    //                     file: file,
+    //                 })
+    //             },
+    //             error(err) {
+    //                 return resolve({
+    //                     success: false,
+    //                     message: err.message
+    //                 })
+    //             }
+    //         })
+    //     })
+    // }
 
-    const quillImageCallBack = () => {
-        console.log(quillRef)
-        const input = document.createElement('input');
-        input.setAttribute('type', 'file');
-        input.setAttribute('accept', 'image/*');
-        input.click();
-        console.log(input)
-        input.onChange = async () => {
-            console.log('anc')
-            const file = input.files[0];
-            console.log(file)
-            const compressState = await fileCompress(file);
-            if (compressState.success) {
-                const fileName = uuidv4()
-                storageRef.ref().child("articlesImages/" + fileName).put(compressState.file)
-                    .then(async snapshot => {
-                        const downloadURL = await storageRef.ref().child("articlesImages/" + fileName).getDownloadURL()
-                        let quillRef = quillRef.getEditor();
-                        const range = quillRef.getSelection(true);
-                        quillRef.insertEmbed(range.index, 'image', downloadURL)
+    // const quillImageCallBack = () => {
+    //     console.log(quillRef)
+    //     const input = document.createElement('input');
+    //     input.setAttribute('type', 'file');
+    //     input.setAttribute('accept', 'image/*');
+    //     input.click();
+    //     console.log(input)
+    //     input.onChange = async () => {
+    //         console.log('anc')
+    //         const file = input.files[0];
+    //         console.log(file)
+    //         const compressState = await fileCompress(file);
+    //         if (compressState.success) {
+    //             const fileName = uuidv4()
+    //             storageRef.ref().child("articlesImages/" + fileName).put(compressState.file)
+    //                 .then(async snapshot => {
+    //                     const downloadURL = await storageRef.ref().child("articlesImages/" + fileName).getDownloadURL()
+    //                     let quillRef = quillRef.getEditor();
+    //                     const range = quillRef.getSelection(true);
+    //                     quillRef.insertEmbed(range.index, 'image', downloadURL)
 
-                    }
-                )
-            }
-        }
-    }
+    //                 }
+    //             )
+    //         }
+    //     }
+    // }
 
     const uploadImageCallBack = (e) => {
         return new Promise(async (resolve, reject) => {
@@ -361,7 +373,7 @@ const DocumentAddForm = ({ db, setIsAdded, typeOfRequest }) => {
                 </div>
                 <h5>Treść:</h5>
                 <ReactQuill
-                    ref={ el => quillRef }
+                    // ref={ el => quillRef }
                     value={ article.content }
                     onChange={ handleContentChange }
                     theme="snow"
