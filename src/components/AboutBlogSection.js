@@ -8,6 +8,7 @@ import {
   NavLink,
 } from 'react-router-dom';
 import firebase from '../config/firebase';
+import parse from 'html-react-parser';
 
 const AboutBlogSection = () => {
 
@@ -62,19 +63,6 @@ const AboutBlogSection = () => {
       getAllRecipes();
   }, [])
 
-  // const setPublishedArticles = (latestArticle) => {
-  //     let publishedArticles = [];
-
-  //     latestArticle.forEach((article) => {
-  //         if (article.isPublished) {
-  //             publishedArticles.push(article)
-  //         }
-  //     })
-
-  //     return publishedArticles;
-  // }
-
-  // console.log(latestArticle[0].featureImage)
   console.log(latestRecipe)
   
     return (
@@ -90,15 +78,34 @@ const AboutBlogSection = () => {
             </div>
             <div className="articles-recipes container">
               <div className="short-line-left"></div>
-              { loadingArticles ? <div className="new__article post"></div> : <img src={ latestArticle[0].featureImage } className="new__article post" /> }
+              { loadingArticles ? <div className="post-image"></div> :
+                <Link to={'/articles/' + 'art/' + latestArticle[0].id} className="post-image">
+                  <img src={ latestArticle[0].featureImage } className={"new__article post " + latestArticle[0].featureImagePosition } />
+                  <div className="post-data">
+                    <h3>{ latestArticle[0].title }</h3>
+                    <div className="post-data__content">
+                    { parse(latestArticle[0].content.slice(0, 200) + "...") }
+                    </div>
+                    <span>Czytaj więcej...</span>
+                  </div>
+                </Link> }
               <div className="logo"></div>
-              { loadingRecipes ? <div className="new__recipe post"></div> : <img src={ latestRecipe[0].featureImage } className="new__recipe post" /> }
+              { loadingRecipes ? <div className="post-image"></div> :
+                <Link to={'/recipes/' + 'rec/' + latestRecipe[0].id} className="post-image">
+                  <img src={ latestRecipe[0].featureImage } className={"new__recipe post " + latestRecipe[0].featureImagePosition } />
+                  <div className="post-data">
+                    <h3>{ latestRecipe[0].title }</h3>
+                    <div className="post-data__content">
+                    { parse(latestRecipe[0].content.slice(0, 200) + "...") }
+                    </div>
+                    <span>Czytaj więcej...</span>
+                  </div>
+                </Link>}
               <div className="short-line-right"></div>
             </div>
             <div className="new-recipe-title-box">
               <div className="title">NAJNOWSZY PRZEPIS</div>
             </div>
-            
           </div>
         </section>
     );
