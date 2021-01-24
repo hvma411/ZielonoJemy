@@ -97,7 +97,6 @@
         justify-content: space-between;
         align-items: center;
         background: $about-color;
-        padding: 20px;
         margin: 5px 0 20px 0;
         cursor: pointer;
 
@@ -122,7 +121,7 @@
             justify-content: flex-start;
             align-items: flex-start;
             color: $line-color;
-            padding-top: 10px;
+            padding: 10px 15px;
 
             .article__title__date {
                 width: 100%;
@@ -171,122 +170,29 @@
         box-shadow: 0px 4px 6px 0px rgba(0,0,0,0.5);
     }
 
-    .right__column {
-        width: 35%;
+    .sidebar {
+        width: 30%;
         height: 100%;
 
-        .latest {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-    
-            .section__title {
-                font-size: 1.6rem;
-                font-weight: 600;
-                color: $line-color;
-                padding-left: 2px;
-            }
-    
-            .underline {
-                content: "";
-                width: 100%;
-                border-bottom: 3px solid $line-color;
-                margin-bottom: 5px;
-            }
-    
-            .latest-article-box {
-                width: 100%;
-                height: auto;
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-start;
-                align-items: center;
-                margin: 5px 0 5px 0;
-                background: $about-color;
-                padding: 20px;
-                cursor: pointer;
-        
-                .article__photo {
-                    display: inline-block;
-                    width: 100%;
-                    padding-top: 100%;
-                    background-image: url(/src/scss/assets/NewOnlineTrainingImage.PNG);
-                    background-position: center;
-                    background-size: cover;
-                    margin-bottom: 8px;
-                }
+        .section__title {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: $line-color;
+            padding-left: 2px;
+        }
 
-                .recipe__photo {
-                    padding-top: 100%;
-                }
-    
-                .article__data {
-                    width: 100%;
-                    height: 100%;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-between;
-                    align-items: flex-start;
-                    color: $line-color;
-        
-                    .article__title__date {
-                        width: 100%;
-                        display: flex;
-                        flex-direction: column-reverse;
-                        justify-content: space-between;
-                        align-items: flex-start;
-                        padding-bottom: 3px;
-        
-                        .title {
-                            font-weight: 600;
-                            font-size: 1.2rem;
-                            letter-spacing: 0.5px
-                        }
-        
-                        .date {
-                            font-weight: 400;
-                            font-size: 0.9rem;
-                        }
-                    }
-        
-                    .article__cut__text {
-                        font-size: 1.1rem;
-                        font-weight: 400;
-                        max-width: 720px;
-                        padding-bottom: 5px;
-                    }
-        
-                    .hash__tags {
-                        width: 100%;
-                        display: flex;
-                        flex-direction: row;
-                        flex-wrap: wrap;
-                        justify-content: flex-start;
-                        align-items: flex-start;
-        
-                        .tag {
-                            font-weight: 600;
-                            padding-right: 8px;
-                            margin-top: 2px;
-                        }
-                    }
-                }
-            }
-    
-            .latest-article-box:hover {
-                background: $main-color;
-                transform: translateY(-1px);
-                -webkit-box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.5); 
-                box-shadow: 0px 4px 6px 0px rgba(0,0,0,0.5);
-            }
+        .underline {
+            display: block;
+            content: "";
+            width: 100%;
+            border-bottom: 3px solid $line-color;
+            margin-bottom: 10px;
         }
         
 
         .instagram-feed {
             display: flex;
+            flex-direction: column;
         }
     }
 }

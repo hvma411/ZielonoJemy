@@ -1,12 +1,5 @@
-import React, { Component, useState, useEffect } from "react";
-import ReactDOM from "react-dom";
-import {
-  HashRouter,
-  Route,
-  Link,
-  Switch,
-  NavLink,
-} from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 import firebase from '../config/firebase';
 import parse from 'html-react-parser';
 
@@ -21,7 +14,6 @@ const AboutBlogSection = () => {
 
 
   async function getAllArticles() {
-
       const articlesRef = await db.collection('articlesAndRecipes').doc('allPosts').collection('articles');
 
       let latestArticleArr = [];
@@ -40,7 +32,6 @@ const AboutBlogSection = () => {
   };
 
   async function getAllRecipes() {
-
       const recipesRef = await db.collection('articlesAndRecipes').doc('allPosts').collection('recipes');
 
       let latestRecipeArr = [];
@@ -66,7 +57,7 @@ const AboutBlogSection = () => {
   console.log(latestRecipe)
   
     return (
-        <section className="about-blog-section">
+        <section className="about-blog-section" name="about-blog">
           <div className="text-part-box container">
             <h2>Dlaczego Zielonojemy?</h2>
             <div className="under-line"></div>
@@ -79,28 +70,46 @@ const AboutBlogSection = () => {
             <div className="articles-recipes container">
               <div className="short-line-left"></div>
               { loadingArticles ? <div className="post-image"></div> :
-                <Link to={'/articles/' + 'art/' + latestArticle[0].id} className="post-image">
-                  <img src={ latestArticle[0].featureImage } className={"new__article post " + latestArticle[0].featureImagePosition } />
+                <div className="post-image">
+                  { !latestArticle ? <div className="post"></div> : <img src={ latestArticle[0].featureImage } className={"new__article post " + latestArticle[0].featureImagePosition } />}
                   <div className="post-data">
-                    <h3>{ latestArticle[0].title }</h3>
-                    <div className="post-data__content">
-                    { parse(latestArticle[0].content.slice(0, 200) + "...") }
+                    <div className="content-box">
+                      { !latestArticle ? <h3>Tytuł artykułu</h3> : <h3>{ latestArticle[0].title }</h3>}
+                      <div className="content-box__content">
+                      { !latestArticle ? <p>Zawartość artykułu</p> :  parse(latestArticle[0].content.slice(0, 200) + "...") }
+                      </div>
                     </div>
-                    <span>Czytaj więcej...</span>
+                    { !latestArticle ?
+                      <a to="#">
+                        <span>Czytaj więcej...</span>
+                      </a> :
+                      <Link to={'/articles/' + 'art/' + latestArticle[0].id} >
+                        <span>Czytaj więcej...</span>
+                      </Link> 
+                    }
                   </div>
-                </Link> }
+                </div> }
               <div className="logo"></div>
               { loadingRecipes ? <div className="post-image"></div> :
-                <Link to={'/recipes/' + 'rec/' + latestRecipe[0].id} className="post-image">
-                  <img src={ latestRecipe[0].featureImage } className={"new__recipe post " + latestRecipe[0].featureImagePosition } />
+                <div className="post-image">
+                  { !latestRecipe ? <div className="post"></div> : <img src={ latestRecipe[0].featureImage } className={"new__recipe post " + latestRecipe[0].featureImagePosition } />}
                   <div className="post-data">
-                    <h3>{ latestRecipe[0].title }</h3>
-                    <div className="post-data__content">
-                    { parse(latestRecipe[0].content.slice(0, 200) + "...") }
+                    <div className="content-box">
+                      { !latestRecipe ? <h3>Tytuł przepisu</h3> : <h3>{ latestRecipe[0].title }</h3>}
+                      <div className="content-box__content">
+                      { !latestRecipe ? <p>Zawartość przepisu</p> : parse(latestRecipe[0].content.slice(0, 200) + "...") }
+                      </div>
                     </div>
-                    <span>Czytaj więcej...</span>
+                    { !latestArticle ?
+                      <a to="#">
+                        <span>Czytaj więcej...</span>
+                      </a> :
+                      <Link to={'/recipes/' + 'rec/' + latestRecipe[0].id} >
+                        <span>Czytaj więcej...</span>
+                      </Link>
+                    }
                   </div>
-                </Link>}
+                </div>}
               <div className="short-line-right"></div>
             </div>
             <div className="new-recipe-title-box">

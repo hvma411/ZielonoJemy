@@ -6,6 +6,7 @@ import {
   Link,
   Switch,
   NavLink,
+  withRouter,
   BrowserRouter as Router,
 } from 'react-router-dom';
 import './scss/main.scss';
@@ -18,14 +19,17 @@ import Services from "./components/MenuComponents/Services";
 import About from "./components/MenuComponents/About";
 import Contact from "./components/MenuComponents/Contact";
 import AdminPanel from "./components/AdminPanel/AdminPanel";
+import AdminSignIn from './components/AdminPanel/AdminSignIn';
+import AdminSignedIn from './components/AdminPanel/AdminSignedIn';
 import ScrollToTop from "./components/ScrollToTop";
 import DocumentDisplay from './components/MenuComponents/DocumentDisplay';
+import { AuthProvider } from "./components/AdminPanel/auth-context";
 
 const App = () => {
     return (
         <Router>
             <ScrollToTop>
-                <HeaderSection />
+                {/* <HeaderSection />
                     <Switch>
                         <Route exact path="/">
                             <Main />
@@ -45,17 +49,18 @@ const App = () => {
                         <Route path="/contact">
                             <Contact/>
                         </Route>
-                        <Route exact path="/articles/:typeOf/:documentID">
-                            <DocumentDisplay />
-                        </Route>
-                        <Route exact path="/recipes/:typeOf/:documentID">
-                            <DocumentDisplay />
-                        </Route>
+                        <Route exact path="/articles/:typeOf/:documentID" component={withRouter(DocumentDisplay)} />
+                        <Route exact path="/recipes/:typeOf/:documentID" component={withRouter(DocumentDisplay)} />
                     </Switch>
-                <FooterSection />
-                {/* <Route path="/panel">
-                        <AdminPanel />
-                </Route> */}
+                <FooterSection /> */}
+                <AuthProvider>
+                    <Route exact path="/">
+                        <AdminSignIn />
+                    </Route>
+                    <Route path="/panel">
+                        <AdminSignedIn />
+                    </Route>
+                </AuthProvider>
             </ScrollToTop>
         </Router>
     );

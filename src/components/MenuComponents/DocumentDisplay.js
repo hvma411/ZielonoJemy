@@ -13,6 +13,8 @@ import parse from 'html-react-parser';
 import firebase from '../../config/firebase';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart, faShareSquare } from '@fortawesome/free-solid-svg-icons'
+import Promoted from "./Promoted";
+import SearchEngine from "../SearchEngine";
 
 const DocumentDisplay = () => {
 
@@ -46,9 +48,7 @@ const DocumentDisplay = () => {
                         hashTags: doc.data().hashTags,
                         featureImage: doc.data().featureImage,
                     }
-    
                 } else {
-                    // doc.data() will be undefined in this case
                     console.log("No such document!");
                 }
             }).catch(function(error) {
@@ -61,7 +61,6 @@ const DocumentDisplay = () => {
         } else if (typeOf === 'rec') {
             await recipeToDisplay.get().then(function(doc) {
                 if (doc.exists) {
-                    console.log("Document data:", doc.data());
                     documentToSet = {
                         title: doc.data().title,
                         content: doc.data().content,
@@ -117,7 +116,12 @@ const DocumentDisplay = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="sidebar"></div>
+                    <div className="sidebar">
+                        <h4 className="sidebar-wrapper-title">PROMOWANY WPIS</h4>
+                        <Promoted />
+                        <h4 className="sidebar-wrapper-title">PRZESZUKAJ BLOGA</h4>
+                        <SearchEngine />
+                    </div>
                 </div>
             </section>
         )

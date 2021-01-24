@@ -10,6 +10,8 @@ import {
 import { InstagramFeed } from './Recipes';
 import Pagination from '../AdminPanel/Pagination';
 import firebase from '../../config/firebase';
+import Promoted from "./Promoted";
+import parse from 'html-react-parser';
 
 const Articles = () => {
 
@@ -84,8 +86,10 @@ const Articles = () => {
                             <Pagination postsPerPage={ postsPerPage } totalPosts={ setPublishedArticles(articles).length } paginate={ paginate } />
                         </div>
                     </div>
-                    <div className="right__column">
-                        <LatestArticle />
+                    <div className="sidebar">
+                        <h3 className="section__title">PROMOWANY WPIS</h3>
+                        <span className="underline"></span>
+                        <Promoted />
                         <InstagramFeed />
                     </div>
                 </div>
@@ -113,9 +117,9 @@ const SingleArticle = ({ article }) => {
                     <h4 className="title">{ article.title }</h4>
                     <span className="date">{ timeStampToString(article.createDate.seconds) }</span>
                 </div>
-                <p className="article__cut__text">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                </p>
+                <div className="article__cut__text">
+                    { parse(article.content.slice(0, 97) + "...")}
+                </div>
                 <div className="hash__tags">
                     {article.hashTags.map((hashTag, idx) => (
                         <span key={ idx } className="tag">{ hashTag }</span>
@@ -124,33 +128,6 @@ const SingleArticle = ({ article }) => {
             </div>
 
         </div>
-    )
-}
-
-const LatestArticle = () => {
-    return (
-        <div className="latest">
-            <h3 className="section__title">NAJNOWSZY</h3>
-            <span className="underline"></span>
-            <div className="latest-article-box">
-                <div className="article__photo"></div>
-                <div className="article__data">
-                    <div className="article__title__date">
-                        <h4 className="title">TYTUŁ ARTYKUŁU</h4>
-                        <span className="date">21.02.2021</span>
-                    </div>
-                    <p className="article__cut__text">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                    </p>
-                    <div className="hash__tags">
-                        <span className="tag">#wegejestspoko</span>
-                        <span className="tag">#happy</span>
-                        <span className="tag">#pełenchillout</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
     )
 }
 

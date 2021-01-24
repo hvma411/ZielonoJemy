@@ -1,5 +1,6 @@
 @import './reset.scss';
 @import './utils/vars/colors';
+@import './utils/vars//keyframes';
 @import './utils/mobileSize/hamburger-menu';
 
 @import './utils/mobileSize/header-section-mobile';
@@ -38,6 +39,8 @@
 @import './utils/mobileSize/contact-mobile';
 @import './utils/fullSize/contact';
 
+@import './utils/mobileSize/ComponentsStyles/promoted-component-mobile';
+@import './utils/mobileSize/ComponentsStyles/search-engine-component-mobile';
 @import './utils/mobileSize/article-display-mobile';
 
 @import './utils/fullSize/AdminPanelStyles/adminSignIn';

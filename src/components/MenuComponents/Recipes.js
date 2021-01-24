@@ -13,6 +13,8 @@ import HeaderSection from "../HeaderSection";
 import Feed from 'react-instagram-authless-feed';
 import Pagination from '../AdminPanel/Pagination';
 import firebase from '../../config/firebase';
+import parse from 'html-react-parser';
+import Promoted from "./Promoted";
 
 const Recipes = () => {
 
@@ -73,7 +75,7 @@ const Recipes = () => {
                 <div className="container articles__page">
                     <div className="articles-list">
                         <div className="title-pagination-box">
-                            <h3 className="section__title">ARTYKUŁY</h3>
+                            <h3 className="section__title">PRZEPISY</h3>
                             <Pagination postsPerPage={ postsPerPage } totalPosts={ setPublishedRecipes(recipes).length } paginate={ paginate } />
                         </div>
                         <span className="underline"></span>
@@ -86,8 +88,10 @@ const Recipes = () => {
                             <Pagination postsPerPage={ postsPerPage } totalPosts={ setPublishedRecipes(recipes).length } paginate={ paginate } />
                         </div>
                     </div>
-                    <div className="right__column">
-                        <LatestRecipe />
+                    <div className="sidebar">
+                        <h3 className="section__title">PROMOWANY WPIS</h3>
+                        <span className="underline"></span>
+                        <Promoted />
                         <InstagramFeed />
                     </div>
                 </div>
@@ -116,7 +120,7 @@ const SingleRecipe = ({ recipe }) => {
                     <span className="date">{ timeStampToString(recipe.createDate.seconds) }</span>
                 </div>
                 <p className="article__cut__text">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                 { parse(recipe.content.slice(0, 97) + "...")}
                 </p>
                 <div className="hash__tags">
                     {recipe.hashTags.map((hashTag, idx) => (
@@ -128,32 +132,6 @@ const SingleRecipe = ({ recipe }) => {
     )
 }
 
-const LatestRecipe = () => {
-    return (
-        <div className="latest">
-            <h3 className="section__title">NAJNOWSZY</h3>
-            <span className="underline"></span>
-            <div className="latest-article-box">
-                <div className="recipe__photo"></div>
-                <div className="article__data">
-                    <div className="article__title__date">
-                        <h4 className="title">TYTUŁ PRZEPISU</h4>
-                        <span className="date">21.02.2021</span>
-                    </div>
-                    <p className="article__cut__text">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                    </p>
-                    <div className="hash__tags">
-                        <span className="tag">#wegejestspoko</span>
-                        <span className="tag">#happy</span>
-                        <span className="tag">#pełenchillout</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    )
-}
 
 class ErrorBoundary extends React.Component {
     constructor(props) {

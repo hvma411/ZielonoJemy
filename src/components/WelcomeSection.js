@@ -3,12 +3,27 @@ import ReactDOM from "react-dom";
 import {
   HashRouter,
   Route,
-  Link,
   Switch,
   NavLink,
 } from 'react-router-dom';
+import { Link } from 'react-scroll';
 
 const WelcomeSection = () => {
+
+    let prevScrollpos = window.pageYOffset;
+
+    window.onscroll = () => {
+        let currentScrollPos = window.pageYOffset;
+        if (prevScrollpos > currentScrollPos) {
+            document.querySelector('header').style.top = "0";
+        } else if (window.innerWidth < 1024) {
+            document.querySelector('header').style.top = "0";
+        } else {
+            document.querySelector('header').style.top = "-65px"
+        }
+        prevScrollpos = currentScrollPos
+    }
+    
     return (
         <section className="welcome-section">
             <div className="container">
@@ -28,7 +43,7 @@ const WelcomeSection = () => {
                 <div className="container reducer">
                     <div className="button-box">
                         <div className="short-line"></div>
-                        <Link to="/services">
+                        <Link to="about-blog" smooth="true" duration={500}>
                             <button>Czytaj więcej</button>
                         </Link>
                     </div>
