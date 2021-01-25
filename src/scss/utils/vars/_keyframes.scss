@@ -4,6 +4,12 @@
     100% {transform: scale(1);}
 }
 
+@keyframes movingImageMobile {
+  0% {transform: scale(1.1);}
+  50% {transform: scale(1.2);}
+  100% {transform: scale(1.1);}
+}
+
 @keyframes shake {
     10%, 90% {
       transform: translate3d(-1px, 0, 0);

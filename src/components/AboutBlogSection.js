@@ -73,12 +73,10 @@ const AboutBlogSection = () => {
                 <div className="post-image">
                   { !latestArticle ? <div className="post"></div> : <img src={ latestArticle[0].featureImage } className={"new__article post " + latestArticle[0].featureImagePosition } />}
                   <div className="post-data">
-                    <div className="content-box">
-                      { !latestArticle ? <h3>Tytuł artykułu</h3> : <h3>{ latestArticle[0].title }</h3>}
-                      <div className="content-box__content">
-                      { !latestArticle ? <p>Zawartość artykułu</p> :  parse(latestArticle[0].content.slice(0, 200) + "...") }
+                    { !latestArticle ? <h3>Tytuł artykułu</h3> : <h3>{ latestArticle[0].title }</h3>}
+                      <div className="content">
+                      { !latestArticle ? <p>Zawartość artykułu</p> :  parse(latestArticle[0].content.slice(0, 200)) }
                       </div>
-                    </div>
                     { !latestArticle ?
                       <a to="#">
                         <span>Czytaj więcej...</span>
@@ -94,12 +92,10 @@ const AboutBlogSection = () => {
                 <div className="post-image">
                   { !latestRecipe ? <div className="post"></div> : <img src={ latestRecipe[0].featureImage } className={"new__recipe post " + latestRecipe[0].featureImagePosition } />}
                   <div className="post-data">
-                    <div className="content-box">
-                      { !latestRecipe ? <h3>Tytuł przepisu</h3> : <h3>{ latestRecipe[0].title }</h3>}
-                      <div className="content-box__content">
-                      { !latestRecipe ? <p>Zawartość przepisu</p> : parse(latestRecipe[0].content.slice(0, 200) + "...") }
+                    { !latestRecipe ? <h3>Tytuł przepisu</h3> : <h3>{ latestRecipe[0].title }</h3>}
+                      <div className="content">
+                      { !latestRecipe ? <p>Zawartość przepisu</p> : parse(latestRecipe[0].content.slice(0, 200)) }
                       </div>
-                    </div>
                     { !latestArticle ?
                       <a to="#">
                         <span>Czytaj więcej...</span>

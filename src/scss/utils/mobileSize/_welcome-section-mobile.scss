@@ -1,4 +1,4 @@
-@media only screen and (min-width: 300px) {
+@media only screen and (min-width: 100px) {
     .welcome-section {
         width: 100%;
         height: auto;
@@ -121,6 +121,15 @@
                     }
                 }
             }
+        }
+    }
+}
+
+@media only screen and (max-width: 725px) and (orientation: landscape) {
+    .welcome-section {
+        .logo-box {
+            height: 120px;
+            margin-bottom: 0;
         }
     }
 }

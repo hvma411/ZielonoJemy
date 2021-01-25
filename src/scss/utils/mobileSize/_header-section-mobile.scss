@@ -1,4 +1,4 @@
-@media only screen and (min-width: 300px) {
+@media only screen and (min-width: 200px) {
     header {
         width: 100%;
         height: auto;
@@ -122,7 +122,15 @@
     }
 }
 
-@media only screen and (min-width: 550px) {
+@media only screen and (max-width: 725px) and (orientation: landscape) {
+  header {
+      .hamburger-nav {
+          flex-direction: row;
+      }
+  }
+}
+
+@media only screen and (min-width: 550px) and (orientation: portrait) {
 
     header {
         .hamburger-nav {
