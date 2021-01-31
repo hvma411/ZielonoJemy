@@ -293,10 +293,6 @@
                         padding: 5px;
                         font-size: 1.4rem;
                         font-weight: 400;
-
-                        p:last-of-type::after{
-                            content: "..."
-                        }
                     }
 
                     a {

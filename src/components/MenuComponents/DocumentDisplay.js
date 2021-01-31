@@ -12,9 +12,17 @@ import {
 import parse from 'html-react-parser';
 import firebase from '../../config/firebase';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHeart, faShareSquare } from '@fortawesome/free-solid-svg-icons'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faHeart } from '@fortawesome/free-regular-svg-icons'
+import { faHeart as faHeartSolid, faShareSquare } from '@fortawesome/free-solid-svg-icons'
+// import { faShareSquare } from '@fortawesome/free-solid-svg-icons'
 import Promoted from "./Promoted";
 import SearchEngine from "../SearchEngine";
+
+library.add(
+    faHeart,
+    faHeartSolid
+)
 
 const DocumentDisplay = () => {
 
@@ -30,6 +38,7 @@ const DocumentDisplay = () => {
         const recipeToDisplay = db.collection('articlesAndRecipes').doc('allPosts').collection('recipes').doc(documentID);
 
         let documentToSet = {
+            id: '',
             title: '',
             content: '',
             createDate: '',
@@ -40,8 +49,8 @@ const DocumentDisplay = () => {
         if (typeOf == 'art') {
             await articleToDisplay.get().then(function(doc) {
                 if (doc.exists) {
-                    console.log("Document data:", doc.data());
                     documentToSet = {
+                        id: doc.id,
                         title: doc.data().title,
                         content: doc.data().content,
                         createDate: doc.data().createDate,
@@ -62,6 +71,7 @@ const DocumentDisplay = () => {
             await recipeToDisplay.get().then(function(doc) {
                 if (doc.exists) {
                     documentToSet = {
+                        id: doc.id,
                         title: doc.data().title,
                         content: doc.data().content,
                         createDate: doc.data().createDate,
@@ -106,9 +116,7 @@ const DocumentDisplay = () => {
                                     </ul>
                                 </div>
                                 <div className="actions-box">
-                                    <span className="like-it icon-box">
-                                        <FontAwesomeIcon icon={ faHeart }/>
-                                    </span>
+                                    <LikeIt documentID={ documentID } db={ db } />
                                     <span className="share-it icon-box">
                                         <FontAwesomeIcon icon={ faShareSquare } />
                                     </span>
@@ -135,6 +143,91 @@ const DocumentDisplay = () => {
         )
     }
 
+}
+
+const LikeIt = ({ documentID, db }) => {
+
+    const postLikesCounter = db.collection('articlesAndRecipes').doc('liked');
+
+    const [likesCounter, setLikesCounter] = useState()
+    const [likedStyle, setLikedStyle] = useState('far')
+
+    
+    const updateLikesInWeb = () => postLikesCounter.get().then((doc) => {
+        setLikesCounter(doc.data()[documentID])
+
+        if (getCookie(documentID)) {
+            setLikedStyle('fas')
+        } else {
+            setLikedStyle('far')
+        }
+    })
+
+
+    const setCookie = (name,value,days) => {
+        let expires = "";
+        if (days) {
+            let date = new Date();
+            date.setTime(date.getTime() + (days*24*60*60*1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+    }
+
+    const getCookie = (name) => {
+        let nameEQ = name + "=";
+        let ca = document.cookie.split(';');
+        for(let i=0;i < ca.length;i++) {
+            let c = ca[i];
+            while (c.charAt(0)==' ') c = c.substring(1,c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+        }
+        return null;
+    }
+
+    const eraseCookie = (name) => {   
+        document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    }
+
+    useEffect(() => {
+        updateLikesInWeb()
+    }, [])
+
+    
+    const handleLikeItClick = (e) => {
+
+        if (getCookie(documentID)) {
+
+            eraseCookie(documentID)
+            setLikedStyle('far')
+            
+            const updateLikesInDb = postLikesCounter.update({
+                [documentID]: firebase.firestore.FieldValue.increment(-1)
+            })
+
+            setLikesCounter(prevState => prevState - 1)
+        } else {
+
+            setCookie(documentID, 'liked', 9999)
+            setLikedStyle('fas')
+
+            const updateLikesInDb = postLikesCounter.update({
+                [documentID]: firebase.firestore.FieldValue.increment(1)
+            })
+
+            setLikesCounter(prevState => prevState + 1)
+        }
+    }
+
+
+    return (
+        <span className="like-it icon-box" onClick={ handleLikeItClick }>
+            <span className="like-it__counter">Polubienia: { likesCounter }</span>
+            <div className="icon">
+                <FontAwesomeIcon icon={[ likedStyle , 'heart']} />
+            </div>
+        </span>
+    )
 }
 
 export default DocumentDisplay;

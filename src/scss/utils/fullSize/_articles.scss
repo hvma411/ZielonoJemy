@@ -191,8 +191,44 @@
         
 
         .instagram-feed {
+            width: 100%;
+            height: auto;
             display: flex;
             flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+
+            .section__title {
+                font-size: 1.6rem;
+                font-weight: 600;
+                color: $line-color;
+                padding-left: 2px;
+            }
+
+            .underline {
+                content: "";
+                width: 100%;
+                border-bottom: 3px solid $line-color;
+                margin-bottom: 10px;
+            }
+
+            .ig-box {
+                margin-top: 0;
+                background: $about-color;
+                padding: 20px;
+            }
+
+            img {
+                width: 100%;
+                max-width: 100%;
+                margin-bottom: 20px;
+            }
+
+            img:hover {
+                transform: translateY(-1px);
+                -webkit-box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.5); 
+                box-shadow: 0px 4px 6px 0px rgba(0,0,0,0.5);
+            }
         }
     }
 }
