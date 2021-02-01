@@ -134,6 +134,35 @@
                                 }
                             }
 
+                            .share-it {
+                                position: relative;
+
+                                &__btns {
+                                    cursor: auto;
+                                    border-radius: 10px;
+                                    position: absolute;
+                                    top: -12px;
+                                    right: 0;
+                                    background: white;
+                                    width: auto;
+                                    height: auto;
+                                    padding: 4px;
+                                    display: none;
+                                    justify-content: space-between;
+                                    align-items: center;
+
+                                    button {
+                                        cursor: pointer;
+                                        display: flex;
+                                        margin: 2px;
+                                    }
+                                }
+                            }
+
+                            .share-it:hover .share-it__btns {
+                                display: flex;
+                            }
+
                             .like-it {
                                 display: flex;
                                 justify-content: center;

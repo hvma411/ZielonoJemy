@@ -15,7 +15,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faHeart } from '@fortawesome/free-regular-svg-icons'
 import { faHeart as faHeartSolid, faShareSquare } from '@fortawesome/free-solid-svg-icons'
-// import { faShareSquare } from '@fortawesome/free-solid-svg-icons'
+import {
+    EmailShareButton,
+    EmailIcon,
+    FacebookShareButton,
+    FacebookIcon,
+    InstapaperShareButton,
+    InstapaperIcon,
+    LinkedinShareButton,
+    LinkedinIcon,
+    TwitterShareButton,
+    TwitterIcon,
+    WhatsappShareButton,
+    WhatsappIcon,
+    FacebookMessengerShareButton,
+    FacebookMessengerIcon,
+} from 'react-share'
 import Promoted from "./Promoted";
 import SearchEngine from "../SearchEngine";
 
@@ -117,9 +132,7 @@ const DocumentDisplay = () => {
                                 </div>
                                 <div className="actions-box">
                                     <LikeIt documentID={ documentID } db={ db } />
-                                    <span className="share-it icon-box">
-                                        <FontAwesomeIcon icon={ faShareSquare } />
-                                    </span>
+                                    <ShareIt />
                                 </div>
                             </div>
                         </div>
@@ -149,7 +162,7 @@ const LikeIt = ({ documentID, db }) => {
 
     const postLikesCounter = db.collection('articlesAndRecipes').doc('liked');
 
-    const [likesCounter, setLikesCounter] = useState()
+    const [likesCounter, setLikesCounter] = useState(0)
     const [likedStyle, setLikedStyle] = useState('far')
 
     
@@ -225,6 +238,34 @@ const LikeIt = ({ documentID, db }) => {
             <span className="like-it__counter">Polubienia: { likesCounter }</span>
             <div className="icon">
                 <FontAwesomeIcon icon={[ likedStyle , 'heart']} />
+            </div>
+        </span>
+    )
+}
+
+const ShareIt = () => {
+
+    const fullUrl = window.location.href
+
+    return (
+        <span className="share-it icon-box">
+            <FontAwesomeIcon icon={ faShareSquare } />
+            <div className="share-it__btns">
+                <FacebookShareButton url={ fullUrl }>
+                    <FacebookIcon size={32} round={true} />
+                </FacebookShareButton>
+                <FacebookMessengerShareButton url={ fullUrl }>
+                    <FacebookMessengerIcon size={32} round={true} />
+                </FacebookMessengerShareButton>
+                <LinkedinShareButton url={ fullUrl }>
+                    <LinkedinIcon size={32} round={true} />
+                </LinkedinShareButton>
+                <TwitterShareButton url={ fullUrl }>
+                    <TwitterIcon size={32} round={true} />
+                </TwitterShareButton>
+                <EmailShareButton url={ fullUrl }>
+                    <EmailIcon size={32} round={true} />
+                </EmailShareButton>
             </div>
         </span>
     )
