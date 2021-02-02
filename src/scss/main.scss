@@ -39,9 +39,11 @@
 @import './utils/mobileSize/contact-mobile';
 @import './utils/fullSize/contact';
 
-@import './utils/mobileSize/ComponentsStyles/promoted-component-mobile';
-@import './utils/mobileSize/ComponentsStyles/search-engine-component-mobile';
+@import './utils/mobileSize/ComponentsStyles/promoted-component';
+@import './utils/mobileSize/ComponentsStyles/search-engine-component';
+
 @import './utils/mobileSize/article-display-mobile';
+@import './utils/fullSize/articles-display';
 
 @import './utils/fullSize/AdminPanelStyles/adminSignIn';
 @import './utils/fullSize/AdminPanelStyles/admin';

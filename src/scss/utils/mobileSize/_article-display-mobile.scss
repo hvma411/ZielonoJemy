@@ -10,20 +10,26 @@
             width: 100%;
             height: auto;
             display: flex;
+            flex-direction: column;
             justify-content: space-between;
 
+            .promoted {
+                display: flex;
+            }
+
             .article {
-                width: 75%;
+                width: 100%;
                 height: auto;
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-start;
                 align-items: flex-start;
-                margin-right: 20px;
+                // margin-right: 20px;
+                margin-bottom: 10px;
 
                 &__img {
                     width: 100%;
-                    height: 550px;
+                    height: 300px;
                     background: url(/src/scss/assets/NewOnlineTrainingImage.PNG);
                     background-repeat: no-repeat;
                     background-size: cover;
@@ -42,7 +48,7 @@
                     font-size: 1.2rem;
 
                     h1 {
-                        font-size: 1.8rem;
+                        font-size: 1.4rem;
                         font-weight: 600;
                         text-align: center;
                         padding-bottom: 10px;
@@ -83,13 +89,15 @@
                         width: 100%;
                         height: auto;
                         display: flex;
+                        flex-direction: column;
                         justify-content: space-between;
-                        align-items: flex-end;
+                        align-items: center;
 
                         .tags-box {
-                            width: 50%;
+                            width: 100%;
                             display: flex;
                             flex-direction: column;
+                            margin-bottom: 15px;
 
                             h4 {
                                 font-size: 0.8rem;
@@ -121,6 +129,8 @@
                         }
 
                         .actions-box {
+
+                            width: 100%;
                             display: flex;
                             justify-content: flex-end;
                             align-items: center;
@@ -179,10 +189,6 @@
                                     position: absolute;
                                     top: 0;
                                 }
-
-                                // &__counter {
-                                //     margin-right: 5px;
-                                // }
                             }
                             
                         }
@@ -193,7 +199,6 @@
                     ul,
                     pre,
                     blockquote,
-                    h1,
                     h2,
                     h3,
                     h4,
@@ -526,7 +531,7 @@
             }
 
             .sidebar {
-                width: 30%;
+                width: 100%;
                 height: auto;
 
 
@@ -545,3 +550,41 @@
     }
 }
 
+@media only screen and (min-width: 768px) {
+    .article-section {
+        width: 100%;
+        height: auto;
+        padding: 120px 0 60px 0;
+        display: flex;
+        justify-content: center;
+    
+        .section-wrapper {
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .promoted {
+                display: flex;
+            }
+
+            .article {
+                // margin-right: 20px;
+                margin-bottom: 10px;
+
+                &__img {
+                    width: 100%;
+                    height: 500px;
+                }
+
+                &__content {
+
+                    h1 {
+                        font-size: 1.8rem;
+                    }
+                }
+            }
+        }
+    }
+}

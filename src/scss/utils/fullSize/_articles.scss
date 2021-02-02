@@ -15,6 +15,10 @@
             justify-content: space-between;
             align-items: flex-start;
 
+            .sidebar {
+                display: block;
+            }
+
             .articles-list {
                 width: 75%;
                 height: 100%;
@@ -55,6 +59,7 @@
                     align-items: center;
 
                     a {
+                        width: 100%;
                         text-decoration: none;
                     }
                 }
@@ -126,6 +131,7 @@
             .article__title__date {
                 width: 100%;
                 display: flex;
+                flex-direction: row;
                 justify-content: space-between;
                 align-items: center;
                 padding-bottom: 3px;
@@ -154,6 +160,7 @@
                 display: flex;
                 justify-content: flex-start;
                 align-items: center;
+                font-size: 0.9rem;
 
                 .tag {
                     font-weight: 600;
