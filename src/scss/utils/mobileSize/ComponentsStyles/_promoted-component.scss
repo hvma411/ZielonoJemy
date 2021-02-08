@@ -21,8 +21,10 @@
     
             .photo {
                 display: inline-block;
+                height: 200px;
+                object-fit: cover;
+                object-position: center;
                 width: 100%;
-                padding-top: 60%;
                 background-image: url(/src/scss/assets/NewOnlineTrainingImage.PNG);
                 background-position: center;
                 background-size: cover;
@@ -123,7 +125,7 @@
             .photo {
                 display: inline-block;
                 width: 100%;
-                padding-top: 60%;
+                height: 400px;
             }
 
             .data {
@@ -172,7 +174,7 @@
             .photo {
                 display: inline-block;
                 width: 100%;
-                padding-top: 60%;
+                height: 200px;
             }
 
             .data {

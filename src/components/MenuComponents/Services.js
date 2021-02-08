@@ -15,7 +15,7 @@ const Services = () => {
         oneMonth: {
             title: "Miesięczne",
             subtitle: "Pakiet na start - chcesz rozpocząć swoją przygodę ze zdrowym odżywianiem",
-            price: 170,
+            price: 180,
             detailsList: [
                 "Indywidualny jadłospis 7-dniowy w pliku PDF do kilkukrotnego powtórzenia (ściąga na lodówkę, dokładne przepisy do każdego posiłku, ilość produktów w gramaturze oraz w miarach domowych, lista zakupów na cały tydzień)",
                 "Wstępna konsultacja wideo lub telefoniczna",
@@ -30,7 +30,7 @@ const Services = () => {
         twoMonths: {
             title: "Dwumiesięczne",
             subtitle: "Czujesz, że miesiąc to za krótko, aby wypracować nowe nawyki żywieniowe",
-            price: 290,
+            price: 310,
             detailsList: [
                 "Zaoszczędzasz 50 zł na dodatkową porcję warzyw",
                 "Dwa indywidualne jadłospisy 7-dniowe w pliku PDF do kilkukrotnego powtórzenia (ściąga na lodówkę, dokładne przepisy do każdego posiłku, ilość produktów w gramaturze oraz w miarach domowych, lista zakupów na cały tydzień)",
@@ -46,7 +46,7 @@ const Services = () => {
         threeMonths: {
             title: "Trzymiesięczne",
             subtitle: "Odpowiedni wariant dla Ciebie, jeśli potrzebujesz więcej czasu i pracy, aby zmienić swoje odżywianie",
-            price: 390,
+            price: 410,
             detailsList: [
                 "Trzy indywidualne jadłospisy 7-dniowe w pliku pdf do kilkukrotnego powtórzenia (ściąga na lodówkę, dokładne przepisy do każdego posiłku, ilość produktów w gramaturze oraz w miarach domowych, lista zakupów na cały tydzień)",
                 "Dostęp do aplikacji mobilnej na okres współpracy, w której znajdzie się Twoja dieta",

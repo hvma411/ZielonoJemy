@@ -28,10 +28,6 @@ const OpinionsSection = () => {
         await opinionsRef.get().then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
                 opinions.push({ id: doc.id, ...doc.data()});
-                // setAllOpinions(prevState => ({
-                //     ...prevState,
-                //     [doc.id]: doc.data()
-                // }))
             })
         }).catch(function(error) {
             setLoading(true);
@@ -43,32 +39,26 @@ const OpinionsSection = () => {
 
     useEffect(() => {
         getOpinions();
-    }, [])
 
-    console.log(allOpinions)
+    }, [])
 
     return (
         <section className="opinions-section">
             <div className="container opinions-wrapper">
                 <h2>Co mówią o mnie inni?</h2>
                 <div className="underline"></div>
-                <Carousel swipeable={true} showThumbs={false} autoPlay={false} autoFocus={true} infiniteLoop={true} interval={3000} centerMode={true}>
-                    {!loading ? allOpinions.map((opinion, idx) => (
-                        <div className="opinions-slider">
-                            <div className="opinion-txt">
-                                <h3>{ opinion.name }</h3>
-                                <p>{ opinion.opinion }</p>
+                {loading ? null :
+                    <Carousel swipeable={true} showThumbs={false} autoPlay={true} autoFocus={false} infiniteLoop={true} interval={4000} centerMode={true}>
+                        { allOpinions.map((opinion, idx) => (
+                            <div key={idx} className="opinions-slider">
+                                <div className="opinion-txt">
+                                    <h3>{ opinion.name }</h3>
+                                    <p>{ opinion.opinion }</p>
+                                </div>
                             </div>
-                        </div>
-                    )) : 
-                        <div className="opinions-slider">
-                            <div className="opinion-txt">
-                                <h3>ANNA KOWALSKA</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temport incididunt ut laobre et dolore magna aliqua.</p>
-                            </div>
-                        </div>
-                    }
-                </Carousel>
+                        ))}
+                    </Carousel>
+                }
             </div>
         </section>
     );

@@ -107,124 +107,124 @@
                 }
             }
 
-            .service-box:nth-child(4), .service-box:nth-child(3) {
-                padding-top: 70px;
-            }
+            // .service-box:nth-child(4), .service-box:nth-child(3) {
+            //     padding-top: 70px;
+            // }
 
-            .service-box:nth-child(5) {
-                padding-top: 95px;
-            }
+            // .service-box:nth-child(5) {
+            //     padding-top: 95px;
+            // }
         }
     }
 }
 
-@media only screen and (min-width: 360px) {
-    .services {
-        .services__page {
-            .service-box:nth-child(3) {
-                padding-top: 70px;
-            }
+// @media only screen and (min-width: 360px) {
+//     .services {
+//         .services__page {
+//             .service-box:nth-child(3) {
+//                 padding-top: 70px;
+//             }
 
-            .service-box:nth-child(4) {
-                padding-top: 45px;
-            }
+//             .service-box:nth-child(4) {
+//                 padding-top: 45px;
+//             }
 
-            .service-box:nth-child(5) {
-                padding-top: 70px;
-            }
-        }
-    }
-}
+//             .service-box:nth-child(5) {
+//                 padding-top: 70px;
+//             }
+//         }
+//     }
+// }
 
-@media only screen and (min-width: 370px) {
-    .services {
-        .services__page {
-            .service-box:nth-child(3), .service-box:nth-child(4) {
-                padding-top: 45px;
-            }
+// @media only screen and (min-width: 370px) {
+//     .services {
+//         .services__page {
+//             .service-box:nth-child(3), .service-box:nth-child(4) {
+//                 padding-top: 45px;
+//             }
 
-            .service-box:nth-child(5) {
-                padding-top: 70px;
-            }
-        }
-    }
-}
+//             .service-box:nth-child(5) {
+//                 padding-top: 70px;
+//             }
+//         }
+//     }
+// }
 
-@media only screen and (min-width: 500px) {
-    .services {
-        .services__page {
-            .service-box:nth-child(3), .service-box:nth-child(4), .service-box:nth-child(5) {
-                padding-top: 45px;
-            }
-        }
-    }
-}
+// @media only screen and (min-width: 500px) {
+//     .services {
+//         .services__page {
+//             .service-box:nth-child(3), .service-box:nth-child(4), .service-box:nth-child(5) {
+//                 padding-top: 45px;
+//             }
+//         }
+//     }
+// }
 
-@media only screen and (min-width: 640px) {
-    .services {
-        .services__page {
-            .service-box {
-                .service__details {
-                    padding: 40px;
-                }
-            }
+// @media only screen and (min-width: 640px) {
+//     .services {
+//         .services__page {
+//             .service-box {
+//                 .service__details {
+//                     padding: 40px;
+//                 }
+//             }
 
-            .service-box:nth-child(3), .service-box:nth-child(5) {
-                padding-top: 45px;
-            }
+//             .service-box:nth-child(3), .service-box:nth-child(5) {
+//                 padding-top: 45px;
+//             }
 
-            .service-box:nth-child(4) {
-                padding-top: 20px;
-            }
-        }
-    }
-}
+//             .service-box:nth-child(4) {
+//                 padding-top: 20px;
+//             }
+//         }
+//     }
+// }
 
-@media only screen and (min-width: 651px) {
-    .services {
-        .services__page {
-            .service-box {
-                .service__details {
-                    padding: 40px;
-                }
-            }
+// @media only screen and (min-width: 651px) {
+//     .services {
+//         .services__page {
+//             .service-box {
+//                 .service__details {
+//                     padding: 40px;
+//                 }
+//             }
 
-            .service-box:nth-child(3) {
-                padding-top: 20px;
-            }
-            .service-box:nth-child(5) {
-                padding-top: 45px;
-            }
-        }
-    }
-}
+//             .service-box:nth-child(3) {
+//                 padding-top: 20px;
+//             }
+//             .service-box:nth-child(5) {
+//                 padding-top: 45px;
+//             }
+//         }
+//     }
+// }
 
-@media only screen and (min-width: 760px) {
-    .services {
-        .services__page {
-            .service-box {
-                .service__details {
-                    padding: 40px;
-                }
+// @media only screen and (min-width: 760px) {
+//     .services {
+//         .services__page {
+//             .service-box {
+//                 .service__details {
+//                     padding: 40px;
+//                 }
 
-                .service__title, .service__subtitle, .service__price {
-                    font-size: 1.3rem;
-                }
-            }
+//                 .service__title, .service__subtitle, .service__price {
+//                     font-size: 1.3rem;
+//                 }
+//             }
 
-            .service-box:nth-child(5) {
-                padding-top: 45px;
-            }
-        }
-    }
-}
+//             .service-box:nth-child(5) {
+//                 padding-top: 45px;
+//             }
+//         }
+//     }
+// }
 
-@media only screen and (min-width: 855px) {
-    .services {
-        .services__page {
-            .service-box:nth-child(5) {
-                padding-top: 20px;
-            }
-        }
-    }
-}
+// @media only screen and (min-width: 855px) {
+//     .services {
+//         .services__page {
+//             .service-box:nth-child(5) {
+//                 padding-top: 20px;
+//             }
+//         }
+//     }
+// }

@@ -16,7 +16,7 @@ const ServicesSection = () => {
                 <div className="underline"></div>
                 <div className="services-box">
                     <div className="service">
-                        <h4>Miesięczna / 170zł</h4>
+                        <h4>Miesięczna / 180zł</h4>
                         <div className="service__img1"></div>
                         <h5>Pakiet na start - chcesz rozpocząć swoją przygodę ze zdrowym odżywianiem</h5>
                         <ul>
@@ -26,7 +26,7 @@ const ServicesSection = () => {
                         </ul>
                     </div>
                     <div className="service promoted">
-                        <h4>Dwumiesięczna / 290zł</h4>
+                        <h4>Dwumiesięczna / 310zł</h4>
                         <div className="service__img1"></div>
                         <h5>Czujesz, że miesiąc to za krótko, aby wypracować nowe nawyki żywieniowe</h5>
                         <ul>
@@ -37,7 +37,7 @@ const ServicesSection = () => {
                         </ul>
                     </div>
                     <div className="service">
-                        <h4>Trzymiesięczna / 390zł</h4>
+                        <h4>Trzymiesięczna / 410zł</h4>
                         <div className="service__img1"></div>
                         <h5>Potrzebujesz długoterminowej opieki i wsparcia</h5>
                         <ul>

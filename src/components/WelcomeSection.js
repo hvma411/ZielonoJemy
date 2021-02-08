@@ -9,20 +9,6 @@ import {
 import { Link } from 'react-scroll';
 
 const WelcomeSection = () => {
-
-    let prevScrollpos = window.pageYOffset;
-
-    window.onscroll = () => {
-        let currentScrollPos = window.pageYOffset;
-        if (prevScrollpos > currentScrollPos) {
-            document.querySelector('header').style.top = "0";
-        } else if (window.innerWidth < 1024) {
-            document.querySelector('header').style.top = "0";
-        } else {
-            document.querySelector('header').style.top = "-65px"
-        }
-        prevScrollpos = currentScrollPos
-    }
     
     return (
         <section className="welcome-section">

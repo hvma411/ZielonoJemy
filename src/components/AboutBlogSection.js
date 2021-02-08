@@ -54,7 +54,6 @@ const AboutBlogSection = () => {
       getAllRecipes();
   }, [])
 
-  console.log(latestRecipe)
   
     return (
         <section className="about-blog-section" name="about-blog">

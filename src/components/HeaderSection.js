@@ -11,6 +11,22 @@ import FooterSection from './FooterSection';
 
 const HeaderSection = () => {
 
+        let prevScrollpos = window.pageYOffset;
+
+    window.onscroll = () => {
+        let currentScrollPos = window.pageYOffset;
+        if (prevScrollpos == 0 ) {
+            document.querySelector('header').style.top = "0"
+        } else if (prevScrollpos > currentScrollPos) {
+            document.querySelector('header').style.top = "0";
+        } else if (window.innerWidth < 1024) {
+            document.querySelector('header').style.top = "0";
+        } else {
+            document.querySelector('header').style.top = "-65px"
+        }
+        prevScrollpos = currentScrollPos
+    }
+
     const handleMobileNavClick = () => {
         const hamburger = document.querySelector('.hamburger');
         const hamburgerNav = document.querySelector('.hamburger-nav');

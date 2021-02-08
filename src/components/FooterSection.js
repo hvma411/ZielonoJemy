@@ -9,7 +9,7 @@ import {
 } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebookSquare, faInstagramSquare, faTwitterSquare } from '@fortawesome/free-brands-svg-icons';
+import { faFacebookSquare, faInstagramSquare, faLinkedin, faTwitterSquare } from '@fortawesome/free-brands-svg-icons';
 
 const FooterSection = () => {
     return (
@@ -32,7 +32,9 @@ const FooterSection = () => {
                         <a href="https://www.instagram.com/zielonojemy/?hl=pl" target="blank_">
                             <FontAwesomeIcon icon={ faInstagramSquare }/>
                         </a>
-                        <FontAwesomeIcon icon={ faTwitterSquare }/>
+                        <a href="https://www.linkedin.com/in/karolina-furma%C5%84ska-75224a205/" target="blank_">
+                            <FontAwesomeIcon icon={ faLinkedin }/>
+                        </a>
                     </div>
                 </div>
                 <div className="vertical-line"></div>

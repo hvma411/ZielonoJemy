@@ -167,7 +167,13 @@ const LikeIt = ({ documentID, db }) => {
 
     
     const updateLikesInWeb = () => postLikesCounter.get().then((doc) => {
-        setLikesCounter(doc.data()[documentID])
+        let allLikes = doc.data()[documentID]
+
+        if (allLikes == null) {
+            setLikesCounter(0)
+        } else {
+            setLikesCounter(doc.data()[documentID])
+        }
 
         if (getCookie(documentID)) {
             setLikedStyle('fas')

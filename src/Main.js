@@ -21,6 +21,7 @@ import Recipes from "./components/MenuComponents/Recipes";
 import Services from "./components/MenuComponents/Services";
 import About from "./components/MenuComponents/About";
 import Contact from "./components/MenuComponents/Contact";
+import ScrollToTop from "./components/ScrollToTop";
 
 const Main = () => {
     return (
@@ -30,7 +31,6 @@ const Main = () => {
             <AboutMeSection />
             <ServicesSection />
             <OpinionsSection />
-
         </>
     );
 };
