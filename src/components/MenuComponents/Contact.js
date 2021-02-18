@@ -8,11 +8,15 @@ import {
   NavLink,
 } from 'react-router-dom';
 
+import emailjs from 'emailjs-com';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookSquare, faInstagramSquare, faTwitterSquare } from '@fortawesome/free-brands-svg-icons';
 
 
 const Contact = () => {
+
+    emailjs.init("user_qOIj9Qy1Tn8QXzZd70ei6")
 
     const [contactForm, setContactForm] = useState({
         fullName: "",
@@ -52,11 +56,34 @@ const Contact = () => {
         };
 
         if (errors.length < 1) {
-            document.querySelector(".messageInfo").style.display = "block";
 
-            const classClear = setTimeout(() => {
-                document.querySelector(".messageInfo").style.display = "none";
-            }, 1500);
+            emailjs.send("service_4fwm234", "template_bx41vgk", {
+                from_name: contactForm.fullName,
+                message: contactForm.guestMessage,
+                guest_email: contactForm.emailAddress,
+                guest_name: contactForm.fullName,
+                reply_to: contactForm.emailAddress,
+            })
+            .then(response => {
+                document.querySelector(".messageInfo").style.display = "block";
+
+                const classClear = setTimeout(() => {
+                    document.querySelector(".messageInfo").style.display = "none";
+                }, 1500);
+
+                setContactForm({
+                    fullName: "",
+                    emailAddress: "",
+                    guestMessage: "",
+                })
+                
+                console.log("Success", response.status, response.text)
+
+            }, error => {
+                console.log(error.text)
+            })
+
+
         };
         
     };
