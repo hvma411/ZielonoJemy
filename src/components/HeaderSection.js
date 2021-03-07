@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { Component, useState, useEffect, useContext } from "react";
 import ReactDOM from "react-dom";
 import {
   HashRouter,
@@ -8,6 +8,7 @@ import {
   NavLink,
 } from 'react-router-dom';
 import FooterSection from './FooterSection';
+import { SearchEngineContext } from '../App';
 
 const HeaderSection = () => {
 
@@ -37,6 +38,14 @@ const HeaderSection = () => {
         body.style.overflow = body.style.overflow === 'hidden' ? '' : 'hidden';
     }
 
+    const searchContext = useContext(SearchEngineContext)
+
+    const openSearchBox = () => {
+        console.log(searchContext)
+        searchContext.setIsModalVisible(true)
+    }
+    
+
     return (
         <header>
             <div className="hamburger-nav">
@@ -47,7 +56,7 @@ const HeaderSection = () => {
                     <li><NavLink onClick={handleMobileNavClick} to="/services" activeStyle={{ color: '#eff5ee' }}>OFERTA</NavLink></li>
                     <li><NavLink onClick={handleMobileNavClick} to="/about" activeStyle={{ color: '#eff5ee' }}>O MNIE</NavLink></li>
                     <li><NavLink onClick={handleMobileNavClick} to="/contact" activeStyle={{ color: '#eff5ee' }}>KONTAKT</NavLink></li>
-                    <li className="search" >SZUKAJ</li>
+                    <li className="search" onClick={ openSearchBox } >SZUKAJ</li>
                 </ul>
                 <FooterSection />
             </div>
@@ -62,7 +71,7 @@ const HeaderSection = () => {
                     <li><Link to="/services">OFERTA</Link></li>
                     <li><Link to="/about">O MNIE</Link></li>
                     <li><Link to="/contact">KONTAKT</Link></li>
-                    <li>SZUKAJ</li>
+                    <li onClick={ openSearchBox } >SZUKAJ</li>
                 </ul>
             </nav>
             <div className="reducer-line"></div>

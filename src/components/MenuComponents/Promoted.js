@@ -105,7 +105,6 @@ const Promoted = () => {
     //     pathSeter();
     // }, [allData]);
 
-    console.log(randomPostIndex);
 
     return (
         <div className="promoted">

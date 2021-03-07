@@ -1,4 +1,15 @@
 @media only screen and (min-width: 200px) {
+    .sidebar-wrapper-title {
+        width: 100%;
+        text-align: center;
+        font-size: 1.45rem;
+        font-weight: 600;
+        color: $line-color;
+        padding: 15px;
+        // border-bottom: 3px solid $line-color;
+        background-color: $about-color;
+    }
+    
     .search-engine-box {
         display: flex;
         justify-content: center;

@@ -22,9 +22,8 @@ import Services from "./components/MenuComponents/Services";
 import About from "./components/MenuComponents/About";
 import Contact from "./components/MenuComponents/Contact";
 import ScrollToTop from "./components/ScrollToTop";
-import SearchResultModal from "./components/SearchResultModal";
 
-const Main = () => {
+const Main = ({ setIsModalVisible }) => {
     return (
         <>
             <WelcomeSection />
@@ -32,7 +31,6 @@ const Main = () => {
             <AboutMeSection />
             <ServicesSection />
             <OpinionsSection />
-            <SearchResultModal />
         </>
     );
 };

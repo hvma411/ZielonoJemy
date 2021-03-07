@@ -15,6 +15,7 @@ import Pagination from '../AdminPanel/Pagination';
 import firebase from '../../config/firebase';
 import parse from 'html-react-parser';
 import Promoted from "./Promoted";
+import SearchEngine from "../SearchEngine";
 
 const Recipes = () => {
 
@@ -93,6 +94,8 @@ const Recipes = () => {
                         <span className="underline"></span>
                         <Promoted />
                         <InstagramFeed />
+                        <h4 className="sidebar-wrapper-title">PRZESZUKAJ BLOGA</h4>
+                        <SearchEngine />
                     </div>
                 </div>
             </section>
@@ -119,9 +122,9 @@ const SingleRecipe = ({ recipe }) => {
                     <h4 className="title">{ recipe.title }</h4>
                     <span className="date">{ timeStampToString(recipe.createDate.seconds) }</span>
                 </div>
-                <p className="article__cut__text">
+                <div className="article__cut__text">
                  { parse(recipe.content.slice(0, 97) + "...")}
-                </p>
+                </div>
                 <div className="hash__tags">
                     {recipe.hashTags.map((hashTag, idx) => (
                         <span key={ idx } className="tag">{ hashTag }</span>

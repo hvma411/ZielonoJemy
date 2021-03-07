@@ -12,6 +12,7 @@ import Pagination from '../AdminPanel/Pagination';
 import firebase from '../../config/firebase';
 import Promoted from "./Promoted";
 import parse from 'html-react-parser';
+import SearchEngine from "../SearchEngine";
 
 const Articles = () => {
 
@@ -91,6 +92,8 @@ const Articles = () => {
                         <span className="underline"></span>
                         <Promoted />
                         <InstagramFeed />
+                        <h4 className="sidebar-wrapper-title">PRZESZUKAJ BLOGA</h4>
+                        <SearchEngine />
                     </div>
                 </div>
             </section>

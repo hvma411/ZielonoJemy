@@ -105,13 +105,23 @@
         margin: 5px 0 20px 0;
         cursor: pointer;
 
-        .article__photo {
+        // .recipe__photo {
+        //     display: inline-block;
+        //     width: 100%;
+        //     padding-top: 100%;
+        //     background-image: url(/src/scss/assets/food.JPG);
+        //     background-position: center;
+        //     background-size: cover;
+        //     margin-bottom: 8px;
+        // }
+
+        .article__photo, .recipe__photo {
             display: inline-block;
             width: 100%;
             height: auto;
             // padding-top: 60%;
             min-width: 100px;
-            min-height: 100px;
+            height: 500px;
             background-image: url(/src/scss/assets/NewOnlineTrainingImage.PNG);
             background-position: center;
             background-size: cover;
