@@ -41,7 +41,6 @@ const HeaderSection = () => {
     const searchContext = useContext(SearchEngineContext)
 
     const openSearchBox = () => {
-        console.log(searchContext)
         searchContext.setIsModalVisible(true)
     }
     

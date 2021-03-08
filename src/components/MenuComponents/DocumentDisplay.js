@@ -116,7 +116,8 @@ const DocumentDisplay = () => {
             <section className="article-section">
                 <div className="container section-wrapper">
                     <div className="article">
-                        <img src={ document.featureImage } className="article__img"></img>
+                        <div className="article__img" style={{ background: `url(${document.featureImage})`, backgroundSize: "cover", backgroundPosition: "center" }} ></div>
+                        {/* <img src={ document.featureImage } className="article__img"></img> */}
                         <div className="article__content">
                             <h1>{ document.title }</h1>
                             {parse(document.content)}

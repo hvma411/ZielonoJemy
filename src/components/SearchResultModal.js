@@ -85,7 +85,7 @@ const SearchResultModal = () => {
                 <div className="space-wrapper"></div>
                 <SearchEngine />
                 { loading ? <div className="loading-logo"></div> : null } 
-                { spinner? <div className="loading-spinner"></div> : null}
+                { spinner ? <div className="loading-spinner"></div> : null}
             </div>
             <div className="close-btn" onClick={ () => closeModal(false) } >
                 <FontAwesomeIcon icon={ faTimes } />

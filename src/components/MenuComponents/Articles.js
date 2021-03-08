@@ -113,8 +113,9 @@ const SingleArticle = ({ article }) => {
 
     return (
         <div className="article-box">
-            {/* <div className="article__photo"></div> */}
-            <img className="article__photo" src={article.featureImage} />
+            <div className="img-container">
+                <div className="article__photo" style={{ background: `url(${article.featureImage})`, backgroundSize: "cover", backgroundPosition: "center" }} ></div>
+            </div>
             <div className="article__data">
                 <div className="article__title__date">
                     <h4 className="title">{ article.title }</h4>

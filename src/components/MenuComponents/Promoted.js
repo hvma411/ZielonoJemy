@@ -110,7 +110,9 @@ const Promoted = () => {
         <div className="promoted">
             { loadingData ? <div className="loading-content"></div> : 
                 <div className="promoted-post-box">
-                    <img src={ allData[randomPostIndex].featureImage } className="photo" />
+                    <div className="img-container">
+                        <div className="photo" style={{ background: `url(${allData[randomPostIndex].featureImage})`, backgroundSize: "cover", backgroundPosition: "center" }}></div>
+                    </div>
                     <div className="data">
                         <h4 className="data__title">{ allData[randomPostIndex].title }</h4>
                         <div className="data__content">

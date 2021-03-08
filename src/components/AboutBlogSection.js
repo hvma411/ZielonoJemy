@@ -70,7 +70,7 @@ const AboutBlogSection = () => {
               <div className="short-line-left"></div>
               { loadingArticles ? <div className="post-image"></div> :
                 <div className="post-image">
-                  { !latestArticle ? <div className="post"></div> : <img src={ latestArticle[0].featureImage } className={"new__article post " + latestArticle[0].featureImagePosition } />}
+                  { !latestArticle ? <div className="post"></div> : <div className={"new__article post " + latestArticle[0].featureImagePosition } style={{ background: `url(${latestArticle[0].featureImage})`, backgroundSize: "cover", backgroundPosition: "center" }}></div> }
                   <div className="post-data">
                     { !latestArticle ? <h3>Tytuł artykułu</h3> : <h3>{ latestArticle[0].title }</h3>}
                       <div className="content">
@@ -89,7 +89,7 @@ const AboutBlogSection = () => {
               <div className="logo"></div>
               { loadingRecipes ? <div className="post-image"></div> :
                 <div className="post-image">
-                  { !latestRecipe ? <div className="post"></div> : <img src={ latestRecipe[0].featureImage } className={"new__recipe post " + latestRecipe[0].featureImagePosition } />}
+                  { !latestRecipe ? <div className="post"></div> : <div className={"new__recipe post " + latestRecipe[0].featureImagePosition } style={{ background: `url(${latestRecipe[0].featureImage})`, backgroundSize: "cover", backgroundPosition: "center" }}></div>}
                   <div className="post-data">
                     { !latestRecipe ? <h3>Tytuł przepisu</h3> : <h3>{ latestRecipe[0].title }</h3>}
                       <div className="content">

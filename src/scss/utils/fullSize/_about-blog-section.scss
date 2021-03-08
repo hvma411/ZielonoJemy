@@ -79,7 +79,7 @@
                     overflow: hidden;
                     text-decoration: none;
 
-                    img {
+                    .post {
                         animation: movingImage;
                         animation-duration: 15s;
                         animation-iteration-count: infinite;
@@ -268,7 +268,7 @@
                     overflow: hidden;
                     text-decoration: none;
 
-                    img {
+                    .post {
                         animation: movingImage;
                         animation-duration: 15s;
                         animation-iteration-count: infinite;

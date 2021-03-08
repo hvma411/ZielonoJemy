@@ -115,8 +115,9 @@ const SingleRecipe = ({ recipe }) => {
 
     return (
         <div className="article-box">
-            <img src={ recipe.featureImage } className="recipe__photo" />
-            {/* <div className="recipe__photo"></div> */}
+            <div className="img-container">
+                <div className="recipe__photo" style={{ background: `url(${recipe.featureImage})`, backgroundSize: "cover", backgroundPosition: "center" }} ></div>
+            </div>
             <div className="article__data">
                 <div className="article__title__date">
                     <h4 className="title">{ recipe.title }</h4>

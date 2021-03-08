@@ -105,28 +105,24 @@
         margin: 5px 0 20px 0;
         cursor: pointer;
 
-        // .recipe__photo {
-        //     display: inline-block;
-        //     width: 100%;
-        //     padding-top: 100%;
-        //     background-image: url(/src/scss/assets/food.JPG);
-        //     background-position: center;
-        //     background-size: cover;
-        //     margin-bottom: 8px;
-        // }
-
-        .article__photo, .recipe__photo {
-            display: inline-block;
+        div.img-container {
             width: 100%;
-            height: auto;
-            // padding-top: 60%;
-            min-width: 100px;
             height: 500px;
-            background-image: url(/src/scss/assets/NewOnlineTrainingImage.PNG);
-            background-position: center;
-            background-size: cover;
-            margin-right: 0;
-            margin-bottom: 0;
+            position: relative;
+            overflow: hidden;
+
+            .article__photo, .recipe__photo {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                width: 100%;
+                background-image: url(/src/scss/assets/NewOnlineTrainingImage.PNG);
+                background-position: center;
+                background-size: cover;
+                margin-right: 0;
+                margin-bottom: 0;
+                margin: auto;
+            }
         }
         
         .article__data {
@@ -233,6 +229,8 @@
                 margin-top: 0;
                 background: $about-color;
                 padding: 20px;
+                padding-bottom: 0;
+                margin-bottom: 20px;
             }
 
             img {
