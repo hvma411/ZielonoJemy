@@ -1,17 +1,8 @@
-import React, { Component, useState, useEffect } from "react";
-import ReactDOM from "react-dom";
-import {
-  HashRouter,
-  Route,
-  Link,
-  Switch,
-  NavLink,
-} from 'react-router-dom';
-
+import React, { useState, useEffect } from "react";
 import emailjs from 'emailjs-com';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebookSquare, faInstagramSquare, faLinkedin, faTwitterSquare } from '@fortawesome/free-brands-svg-icons';
+import { faFacebookSquare, faInstagramSquare, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 
 const Contact = () => {
@@ -88,7 +79,6 @@ const Contact = () => {
         
     };
     
-
     const handleFormChange = (e) => {
         e.persist();
         setContactForm(prevState => ({
@@ -101,7 +91,6 @@ const Contact = () => {
         e.preventDefault();
         sendMessage();
     }
-
 
     useEffect(() => {
         if (contactForm.fullName.length > 2) {
@@ -171,9 +160,7 @@ const Contact = () => {
                         </form>
 
                     </div>
-                    <div className="img-box">
-                        
-                    </div>
+                    <div className="img-box"></div>
                 </div>
             </div>
         </section>
